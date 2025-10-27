@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+/* כל הגוף */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Home Section */
+#home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 90vh;
+  text-align: center;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+#home::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#home img {
+  border-radius: 50%;
+  width: 40vw;
+  max-width: 350px;
+  height: 40vw;
+  max-height: 350px;
+  object-fit: cover;
+  border: 3px solid #0ff;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  z-index: 1;
+}
+
+#home h1 {
+  font-size: calc(1.5rem + 2vw);
+  margin: 20px 0;
+  z-index: 1;
+}
+
+#home p {
+  max-width: 600px;
+  font-size: calc(0.9rem + 0.5vw);
+  line-height: 1.6;
+  z-index: 1;
+  padding: 0 10px;
+}
+
+/* Recent Projects Section */
+#recent-projects {
+  padding: 50px;
+  text-align: center;
+  background-color: #0f0f1c;
+}
+
+#recent-projects h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #1f1f2f;
+  color: #aaa;
+  margin-top: 50px;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  #home img {
+    width: 60vw;
+    height: 60vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
