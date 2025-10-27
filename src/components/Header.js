@@ -4,7 +4,7 @@ import './Header.css';
 function Header() {
   return (
     <header>
-      <div className="logo">Eden Aharon</div>
+      <h1>Eden Aharon</h1>
       <nav>
         <a href="#home">Home</a>
         <a href="#recent-projects">Projects</a>

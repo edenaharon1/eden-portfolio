@@ -2,8 +2,57 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
   color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, rgba(31, 31, 47, 0.85), rgba(31, 31, 47, 0.6));
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+header h1 {
+  font-size: 1.5rem;
+  color: #0ff;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #0ff;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* Home Section */
@@ -17,6 +66,7 @@ body {
   padding: 50px;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
 }
 
 #home::before {
@@ -26,9 +76,16 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: radial-gradient(circle, rgba(0,255,255,0.12) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
   z-index: 0;
+  animation: movePattern 20s linear infinite;
+}
+
+
+@keyframes movePattern {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(50px,50px); }
 }
 
 #home img {
@@ -39,8 +96,14 @@ body {
   max-height: 350px;
   object-fit: cover;
   border: 3px solid #0ff;
-  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  box-shadow: 0 0 25px rgba(0,255,255,0.4);
   z-index: 1;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+#home img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0,255,255,0.6);
 }
 
 #home h1 {
@@ -59,29 +122,108 @@ body {
 
 /* Recent Projects Section */
 #recent-projects {
-  padding: 50px;
+  max-width: 700px;      /* רוחב מקסימלי קטן */
+  width: 80%;            /* תופס 80% מרוחב המסך */
+  margin: 50px auto;     /* מרכז אוטומטית */
+  padding: 30px 20px;    /* פחות padding לגובה קטן יותר */
   text-align: center;
-  background-color: #0f0f1c;
+  background: linear-gradient(to bottom, rgba(31,31,47,0.8), rgba(31,31,47,0.6));
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,255,255,0.2);
+  overflow: hidden;      /* מונע שהפרויקטים “ידלגו” החוצה */
 }
+
 
 #recent-projects h2 {
   font-size: 2rem;
   margin-bottom: 30px;
+  color: #0ff;
 }
 
 .projects-container {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;         /* אין מעבר שורה */
+  justify-content: center;   /* מרכז את שני הכרטיסים במלבן */
+  gap: 30px;                 /* רווח בין הפרויקטים */
+  margin-top: 20px;
+}
+
+/* Project Cards */
+.project-card {
+  background-color: rgba(31,31,47,0.85);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card-content {
+  padding: 15px;
+  text-align: left;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #0ff;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,255,255,0.5);
 }
 
 /* Footer */
 footer {
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
-  background-color: #1f1f2f;
+  background-color: rgba(31,31,47,0.85);
   color: #aaa;
   margin-top: 50px;
+  border-top: 2px solid #0ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+footer a {
+  color: #0ff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  max-width: 90%;
 }
 
 /* רספונסיביות */
@@ -94,5 +236,12 @@ footer {
   .projects-container {
     flex-direction: column;
     align-items: center;
+  }
+
+  nav {
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
   }
 }

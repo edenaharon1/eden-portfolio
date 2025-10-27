@@ -29,14 +29,14 @@ function App() {
       <Header />
 
       {/* Home Section */}
-      <section id="home">
-        <img src={EdenImage} alt="Eden" />
-        <h1>Eden Aharon</h1>
-        <p>
-          I am a passionate software developer specialized in Frontend development with React and JavaScript. 
-          I love building clean, modern, and user-friendly web applications.
-        </p>
-      </section>
+      <section id="home" className="home-section">
+  <img src={EdenImage} alt="Eden" className="home-image" />
+  <h1 className="home-name">Eden Aharon</h1>
+  <p className="home-description">
+    I am a passionate software developer specialized in Frontend development with React and JavaScript. 
+    I love building clean, modern, and user-friendly web applications.
+  </p>
+</section>
 
       {/* Recent Projects Section */}
       <section id="recent-projects">
