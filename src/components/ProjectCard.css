@@ -1,48 +1,78 @@
+.project-card-link {
+  display: block;
+  margin: 15px 0; /* כל כרטיס בשורה */
+  text-decoration: none;
+}
+
 .project-card {
+  display: flex;
+  flex-direction: column; /* תמונה למעלה, טקסט למטה */
+  align-items: center; /* מרכז את התמונה והטקסט */
   background: #1f1f2f;
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  margin: 15px;
-  padding: 20px;
-  width: 300px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* צל עדין למראה מודרני */
+  padding: 20px 20px 40px;
   transition: transform 0.3s, box-shadow 0.3s;
+  gap: 15px;
+  min-height: 240px; /* מעט גבוה יותר */
+  width: 280px;
   text-align: center;
 }
 
+/* תמונת פרוייקט כעיגול מושלם */
 .project-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* עיגול מושלם */
   object-fit: cover;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+  border: 2px solid #0ff; /* קו עדין סביב התמונה למראה מקצועי */
+}
+
+/* תוכן הטקסט */
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
 }
 
 .project-card h3 {
-  margin: 10px 0;
-  font-size: 1.3rem;
+  margin: 0 0 5px 0;
+  font-size: 1.2rem; /* מעט קטן יותר למראה עדין */
+  color: #fff;
+  font-weight: 600;
 }
 
 .project-card p {
-  font-size: 0.95rem;
+  margin: 0;
+  font-size: 0.9rem;
   line-height: 1.4;
   color: #ccc;
 }
 
-.project-links {
-  margin-top: 10px;
-}
-
-.project-links a {
-  text-decoration: none;
-  color: #0ff;
-  margin: 0 10px;
-  transition: color 0.3s;
-}
-
-.project-links a:hover {
-  color: #fff;
-}
-
+/* אפקט ריחוף עדין */
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0,255,255,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,255,255,0.3);
+}
+
+.project-card-icons {
+  display: flex;
+  justify-content: center; /* מרכז את האייקונים אופקית */
+  gap: 15px; /* רווח בין האייקונים */
+  margin-top: 10px; /* רווח מעל האייקונים */
+}
+
+.project-card-icons a {
+  color: #0ff; /* צבע האייקון */
+  font-size: 1.2rem; /* גודל האייקון */
+  transition: transform 0.2s, color 0.2s;
+}
+
+.project-card-icons a:hover {
+  transform: scale(1.2);
+  color: #fff;
 }
