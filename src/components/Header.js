@@ -3,14 +3,14 @@ import './Header.css';
 
 function Header() {
   return (
-    <header>
+    <nav className="side-nav right">
       <div className="logo">Eden Aharon</div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#recent-projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   );
 }
 

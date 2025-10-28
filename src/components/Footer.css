@@ -1,5 +1,6 @@
 footer {
-  background: #1f1f2f;
+  background: rgba(31,31,47,0.8); /* שקיפות חלקית */
+  backdrop-filter: blur(5px);     /* מטושטש קל */
   color: #aaa;
   text-align: center;
   padding: 40px 20px;
@@ -10,8 +11,8 @@ footer {
   align-items: center;
   gap: 15px;
   width: 100%;
-  box-sizing: border-box; /* חשוב כדי שכל padding יישמר בתוך המסך */
-  word-wrap: break-word; /* כדי שהטקסט לא ייצא מהמסך */
+  box-sizing: border-box; 
+  word-wrap: break-word;
 }
 
 footer a {
@@ -28,15 +29,15 @@ footer a:hover {
 
 .social-links {
   display: flex;
-  flex-wrap: wrap; /* מאפשר להוריד שורות במידה ואין מקום */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px; /* ריווח אחיד בין כל הקישורים */
+  gap: 15px;
 }
 
 footer p {
   margin: 5px 0;
   font-size: 0.9rem;
-  max-width: 90%; /* מגבלת רוחב כך שהטקסט לא יצא מהמסך */
+  max-width: 90%;
 }
 
 /* רספונסיביות */
