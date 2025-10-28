@@ -1,61 +1,36 @@
-/* כל הגוף */
+/* App.css */
+
+/* --- Body עם רקע נקודות --- */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
   color: #ffffff;
   scroll-behavior: smooth;
-}
-
-/* Header */
-header {
-  background: linear-gradient(to right, rgba(31, 31, 47, 0.85), rgba(31, 31, 47, 0.6));
-  backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-
-header h1 {
-  font-size: 1.5rem;
-  color: #0ff;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
+  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
   position: relative;
+  overflow-x: hidden;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
   left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background: #0ff;
-  transition: width 0.3s;
-}
-
-nav a:hover::after {
   width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,255,255,0.12) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  pointer-events: none; /* כדי שלא יפריע לקליקים */
+  z-index: 0;
+  animation: movePattern 20s linear infinite;
 }
 
-/* Home Section */
+@keyframes movePattern {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(50px,50px); }
+}
+
+/* --- Home Section --- */
 #home {
   display: flex;
   flex-direction: column;
@@ -65,27 +40,7 @@ nav a:hover::after {
   text-align: center;
   padding: 50px;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
-}
-
-#home::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0,255,255,0.12) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
-  z-index: 0;
-  animation: movePattern 20s linear infinite;
-}
-
-
-@keyframes movePattern {
-  0% { transform: translate(0,0); }
-  100% { transform: translate(50px,50px); }
+  z-index: 1; /* מעל הרקע */
 }
 
 #home img {
@@ -97,7 +52,6 @@ nav a:hover::after {
   object-fit: cover;
   border: 3px solid #0ff;
   box-shadow: 0 0 25px rgba(0,255,255,0.4);
-  z-index: 1;
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
@@ -109,67 +63,71 @@ nav a:hover::after {
 #home h1 {
   font-size: calc(1.5rem + 2vw);
   margin: 20px 0;
-  z-index: 1;
 }
 
 #home p {
   max-width: 600px;
   font-size: calc(0.9rem + 0.5vw);
   line-height: 1.6;
-  z-index: 1;
   padding: 0 10px;
 }
 
-/* Recent Projects Section */
-#recent-projects {
-  max-width: 700px;      /* רוחב מקסימלי קטן */
-  width: 80%;            /* תופס 80% מרוחב המסך */
-  margin: 50px auto;     /* מרכז אוטומטית */
-  padding: 30px 20px;    /* פחות padding לגובה קטן יותר */
-  text-align: center;
-  background: linear-gradient(to bottom, rgba(31,31,47,0.8), rgba(31,31,47,0.6));
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,255,255,0.2);
-  overflow: hidden;      /* מונע שהפרויקטים “ידלגו” החוצה */
-}
-
-
-#recent-projects h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #0ff;
-}
-
-.projects-container {
+/* --- Projects List --- */
+.projects-list {
   display: flex;
-  flex-wrap: nowrap;         /* אין מעבר שורה */
-  justify-content: center;   /* מרכז את שני הכרטיסים במלבן */
-  gap: 30px;                 /* רווח בין הפרויקטים */
-  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 50px 0;
+  padding: 0;
+  background: transparent; /* אין ריבוע מאחורה */
+  z-index: 1;
 }
 
-/* Project Cards */
+/* --- Project Card --- */
 .project-card {
-  background-color: rgba(31,31,47,0.85);
-  border-radius: 15px;
-  overflow: hidden;
-  width: 200px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1f1f2f; /* במקום שקוף */
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  text-align: center;
 }
+
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0,255,255,0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,255,255,0.3);
 }
 
-/* Footer */
+.project-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #0ff;
+}
+
+.project-card h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* --- Footer --- */
 footer {
   padding: 40px 20px;
   text-align: center;
   background-color: rgba(31,31,47,0.85);
   color: #aaa;
-  margin-top: 50px;
   border-top: 2px solid #0ff;
   display: flex;
   flex-direction: column;
@@ -177,50 +135,89 @@ footer {
   gap: 15px;
   width: 100%;
   box-sizing: border-box;
-  word-wrap: break-word;
 }
 
 footer a {
   color: #0ff;
   text-decoration: none;
   margin: 0 10px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-footer a:hover {
-  color: #fff;
-  transform: scale(1.1);
 }
 
 .social-links {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 }
 
-footer p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  max-width: 90%;
-}
-
-/* רספונסיביות */
+/* --- רספונסיביות --- */
 @media (max-width: 768px) {
   #home img {
     width: 60vw;
     height: 60vw;
   }
 
-  .projects-container {
+  .projects-list {
     flex-direction: column;
     align-items: center;
   }
+}
 
-  nav {
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
+#skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+
+.skills-card {
+  background-color: rgba(20, 20, 35, 0.9); /* ריבוע כהה יותר */
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 900px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+  backdrop-filter: blur(12px); /* אפקט מעט חזק יותר */
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+.skills-card h2 {
+  font-size: 2.5rem;
+  color: #0ff;
+  font-weight: 700; /* מודגש יותר */
+  margin-bottom: 30px;
+  letter-spacing: 3px; /* מעט יותר רווח בין האותיות */
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6); /* הילה קלה */
+}
+
+.skills-card p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .skills-card {
+    padding: 40px 20px;
+  }
+
+  .skills-card h2 {
+    font-size: 2rem;
+  }
+
+  .skills-card p {
+    font-size: 1rem;
   }
 }
+

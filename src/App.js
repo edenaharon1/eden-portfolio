@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EdenImage from './assets/eden2.jpeg';
@@ -5,47 +6,57 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
-import projects from './data/projects'; // מייבאים את כל הפרויקטים
+import projects from './data/projects';
 import './App.css';
 
 function App() {
-
   return (
     <Router>
       <Header />
 
       <Routes>
-        {/* דף הבית */}
         <Route
           path="/"
           element={
             <div>
-              <section id="home" className="home-section">
-                <img src={EdenImage} alt="Eden" className="home-image" />
-                <h1 className="home-name">Eden Aharon</h1>
-                <p className="home-description">
-                  I am a passionate software developer specialized in Frontend development with React and JavaScript.
+              {/* Home Section */}
+              <section id="home">
+                <img src={EdenImage} alt="Eden" />
+                <h1>Eden Aharon</h1>
+                <p>
+                  I am a passionate software developer specialized in Frontend
+                  development with React and JavaScript.
                   I love building clean, modern, and user-friendly web applications.
                 </p>
               </section>
 
-              {/* כל הפרויקטים */}
-              <section id="projects">
-                <h2>Projects</h2>
-                <div className="projects-container">
-                  {projects.map((proj) => (
-                    <ProjectCard key={proj.id} {...proj} />
-                  ))}
+              {/* Skills Section */}
+              <section id="skills">
+                <div className="skills-card">
+                  <h2>My Skills</h2>
+                  <p>
+                    JavaScript • React • HTML • CSS • Node.js • TypeScript • Git • Redux •
+                    REST APIs • Responsive Design
+                  </p>
                 </div>
+              </section>
+
+              {/* Projects */}
+              <section id="projects">
+              <div className="projects-list">
+                {projects.map(proj => (
+                  <ProjectCard key={proj.id} {...proj} />
+                ))}
+              </div>
               </section>
             </div>
           }
         />
 
-        {/* דף פרויקט בודד */}
+        {/* Project Detail */}
         <Route
           path="/projects/:id"
-          element={<ProjectDetail projects={projects} />} // מעבירים את כל הרשימה ל-ProjectDetail
+          element={<ProjectDetail projects={projects} />}
         />
       </Routes>
 
