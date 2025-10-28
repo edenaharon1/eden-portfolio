@@ -1,44 +1,69 @@
-
-
-header h1 {
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-nav {
+/* תפריט צדדי שקוף ומעוצב */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 25px;
+  background: rgba(31, 31, 47, 0.35); /* שקיפות עם רקע עדין */
+  border: 1.5px solid rgba(0, 255, 255, 0.4); /* מסגרת זוהרת */
+  border-radius: 15px;
+  padding: 25px 20px;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* אפקט זכוכית מט */
+  box-shadow: 0 0 15px rgba(0,255,255,0.1);
 }
 
-nav a {
-  color: var(--text-color);
+/* למקם בצד ימין */
+.side-nav.right {
+  right: 30px;
+}
+
+/* כותרת בראש המסגרת */
+.side-nav .logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0,255,255,0.3);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* רשימת קישורים */
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.side-nav ul li {
+  margin: 10px 0;
+}
+
+.side-nav a {
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
-  position: relative;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: width 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
+.side-nav a:hover {
+  color: #0ff;
+  transform: scale(1.05);
 }
 
 /* רספונסיביות */
 @media (max-width: 768px) {
-  nav {
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
+  .side-nav {
+    right: 10px;
+    padding: 15px 10px;
   }
 }
