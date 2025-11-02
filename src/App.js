@@ -6,8 +6,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
-import ContactCard from './components/ContactCard'; // ✅ נוספה כאן
+import ContactCard from './components/ContactCard';
 import projects from './data/projects';
+import cv from './assets/Eden_Aharon_CV.pdf';
 import './App.css';
 
 function App() {
@@ -16,11 +17,26 @@ function App() {
       <Header />
 
       <Routes>
-        {/* --- עמוד הבית --- */}
+        {/* --- Home Page --- */}
         <Route
           path="/"
           element={
             <div>
+              {/* --- Hero Section --- */}
+              <section id="hero">
+                <div className="hero-content">
+                  <h2 className="hero-subtitle">Welcome!</h2>
+                  <h1 className="hero-title">Hi, I'm Eden</h1>
+                  <p className="hero-text">
+                    I'm a passionate frontend developer building clean and modern web applications.
+                  </p>
+                  <a href={cv} download className="hero-btn">
+                    <span class="btn-icon">⬇️</span>
+                    Download My Resume
+                  </a>
+                </div>
+              </section>
+
               {/* Home Section */}
               <section id="home">
                 <img src={EdenImage} alt="Eden" />
@@ -52,7 +68,7 @@ function App() {
                 </div>
               </section>
 
-              {/* ✅ Contact Card Section */}
+              {/* Contact Card Section */}
               <ContactCard />
             </div>
           }
