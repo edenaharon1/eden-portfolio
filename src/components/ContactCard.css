@@ -10,15 +10,19 @@
   box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
   border: 2px solid rgba(0, 255, 255, 0.3);
   backdrop-filter: blur(12px);
-  animation: floatContact 6s ease-in-out infinite alternate;
   position: relative;
-  z-index: 1;
+  z-index: 10; /* חשוב */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 50px rgba(0, 255, 255, 0.5);
+}
+
+/* --- התוכן הפנימי עם אנימציה --- */
+.contact-card-content {
+  animation: floatContact 6s ease-in-out infinite alternate;
 }
 
 .contact-card h2 {

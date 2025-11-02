@@ -1,61 +1,82 @@
-/* תפריט צדדי שקוף ומעוצב */
+/* בסיסי */
 .side-nav {
   position: fixed;
   top: 50%;
+  right: 30px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 25px;
-  background: rgba(31, 31, 47, 0.35); /* שקיפות עם רקע עדין */
-  border: 1.5px solid rgba(0, 255, 255, 0.4); /* מסגרת זוהרת */
-  border-radius: 15px;
-  padding: 25px 20px;
+  align-items: flex-end;
   z-index: 1000;
-  backdrop-filter: blur(10px); /* אפקט זכוכית מט */
-  box-shadow: 0 0 15px rgba(0,255,255,0.1);
 }
 
-/* למקם בצד ימין */
-.side-nav.right {
-  right: 30px;
+/* Hamburger button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1010;
 }
 
-/* כותרת בראש המסגרת */
-.side-nav .logo {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0ff;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(0,255,255,0.3);
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  text-align: center;
+.hamburger span {
+  display: block;
+  height: 3px;
   width: 100%;
+  background: #0ff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* אנימציה לפתיחת Hamburger */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* רשימת קישורים */
-.side-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(31, 31, 47, 0.85);
+  border: 1.5px solid rgba(0, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(50px);
+  transition: all 0.4s ease;
 }
 
-.side-nav ul li {
-  margin: 10px 0;
+.nav-links.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
-.side-nav a {
+.nav-links li {
+  margin: 12px 0;
+}
+
+.nav-links a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s, transform 0.3s;
-  display: inline-block;
 }
 
-.side-nav a:hover {
+.nav-links a:hover {
   color: #0ff;
   transform: scale(1.05);
 }
@@ -63,7 +84,6 @@
 /* רספונסיביות */
 @media (max-width: 768px) {
   .side-nav {
-    right: 10px;
-    padding: 15px 10px;
+    right: 15px;
   }
 }
