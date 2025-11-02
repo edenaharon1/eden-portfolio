@@ -20,7 +20,7 @@ body::before {
   height: 100%;
   background: radial-gradient(circle, rgba(0,255,255,0.12) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
-  pointer-events: none; /* כדי שלא יפריע לקליקים */
+  pointer-events: none;
   z-index: 0;
   animation: movePattern 20s linear infinite;
 }
@@ -40,7 +40,7 @@ body::before {
   text-align: center;
   padding: 50px;
   position: relative;
-  z-index: 1; /* מעל הרקע */
+  z-index: 1;
 }
 
 #home img {
@@ -80,7 +80,7 @@ body::before {
   gap: 30px;
   margin: 50px 0;
   padding: 0;
-  background: transparent; /* אין ריבוע מאחורה */
+  background: transparent;
   z-index: 1;
 }
 
@@ -88,12 +88,11 @@ body::before {
 .project-card {
   flex-direction: column;
   align-items: center;
-  background-color: #1f1f2f; /* במקום שקוף */
+  background-color: #1f1f2f;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   text-align: center;
 }
-
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -162,6 +161,7 @@ footer a {
   }
 }
 
+/* --- Skills Section --- */
 #skills {
   display: flex;
   justify-content: center;
@@ -173,25 +173,25 @@ footer a {
 }
 
 .skills-card {
-  background-color: rgba(20, 20, 35, 0.9); /* ריבוע כהה יותר */
+  background-color: rgba(20, 20, 35, 0.9);
   border-radius: 20px;
   padding: 50px 40px;
   max-width: 900px;
   width: 90%;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
-  backdrop-filter: blur(12px); /* אפקט מעט חזק יותר */
+  backdrop-filter: blur(12px);
   border: 2px solid rgba(0, 255, 255, 0.3);
-  animation: float 6s ease-in-out infinite alternate;
+  animation: floatSkills 6s ease-in-out infinite alternate;
 }
 
 .skills-card h2 {
   font-size: 2.5rem;
   color: #0ff;
-  font-weight: 700; /* מודגש יותר */
+  font-weight: 700;
   margin-bottom: 30px;
-  letter-spacing: 3px; /* מעט יותר רווח בין האותיות */
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6); /* הילה קלה */
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
 }
 
 .skills-card p {
@@ -201,12 +201,11 @@ footer a {
   letter-spacing: 1px;
 }
 
-@keyframes float {
+@keyframes floatSkills {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-15px); }
 }
 
-/* רספונסיביות */
 @media (max-width: 768px) {
   .skills-card {
     padding: 40px 20px;
@@ -220,4 +219,143 @@ footer a {
     font-size: 1rem;
   }
 }
+/* --- Hero Section --- */
+/* --- Hero Section --- */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d0d1a, #1a1a2e, #2a2a44);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
 
+/* רקע דינמי עם חלקיקים/קוים */
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/connected.png'); /* רשת חלקיקים */
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* כותרת ראשית */
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #0ff, #c082ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+/* כותרת משנית */
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #0ff;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+  z-index: 1;
+}
+
+/* טקסט נוסף */
+.hero-text {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #d0e7ff;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  z-index: 1;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0ff;
+  background-color: #1f1f2f;
+  border: 3px solid #0ff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.4);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  user-select: none;
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+  background-color: #0ff;
+  color: #1f1f2f;
+  box-shadow: 0 14px 40px rgba(0, 255, 255, 0.8);
+  transform: scale(1.08);
+  outline: none;
+}
+
+.btn-icon {
+  font-size: 1.5rem; /* גדול יותר מהטקסט */
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/* אייקונים/איורים של קוד בצדדים */
+.hero-visuals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-visuals svg {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.05;
+  animation: floatVisual 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatVisual {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(360deg); }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+}
