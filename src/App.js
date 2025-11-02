@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
+import ContactCard from './components/ContactCard'; // ✅ נוספה כאן
 import projects from './data/projects';
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
       <Header />
 
       <Routes>
+        {/* --- עמוד הבית --- */}
         <Route
           path="/"
           element={
@@ -41,19 +43,22 @@ function App() {
                 </div>
               </section>
 
-              {/* Projects */}
+              {/* Projects Section */}
               <section id="projects">
-              <div className="projects-list">
-                {projects.map(proj => (
-                  <ProjectCard key={proj.id} {...proj} />
-                ))}
-              </div>
+                <div className="projects-list">
+                  {projects.map((proj) => (
+                    <ProjectCard key={proj.id} {...proj} />
+                  ))}
+                </div>
               </section>
+
+              {/* ✅ Contact Card Section */}
+              <ContactCard />
             </div>
           }
         />
 
-        {/* Project Detail */}
+        {/* --- Project Detail --- */}
         <Route
           path="/projects/:id"
           element={<ProjectDetail projects={projects} />}

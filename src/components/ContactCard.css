@@ -1,0 +1,83 @@
+.contact-card {
+  background-color: rgba(20, 20, 35, 0.9);
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 400px;
+  width: 90%;
+  margin: 100px auto;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  animation: floatContact 6s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 255, 255, 0.5);
+}
+
+.contact-card h2 {
+  font-size: 2rem;
+  color: #0ff;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+/* --- כפתורי הקשר --- */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: 2px solid #0ff;
+  background: rgba(0, 255, 255, 0.1);
+  color: #0ff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.contact-btn:hover {
+  background-color: #0ff;
+  color: #111;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+/* --- אנימציה צפה --- */
+@keyframes floatContact {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* --- רספונסיביות --- */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 40px 25px;
+  }
+
+  .contact-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
