@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <footer id="contact">
+    <footer id="footer">
       <p>Contact me: <a href="mailto:eden@example.com">eden@example.com</a></p>
       <div className="social-links">
         <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
