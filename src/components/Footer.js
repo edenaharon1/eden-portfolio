@@ -4,13 +4,17 @@ import './Footer.css';
 function Footer() {
   return (
     <footer id="footer">
-      <p>Contact me: <a href="mailto:eden@example.com">eden@example.com</a></p>
+      <p>Crafted with passion &nbsp;💻 &nbsp;| &nbsp; © {new Date().getFullYear()} Eden Aharon</p>
       <div className="social-links">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a 
+          href="https://github.com/edenaharon1/eden-portfolio.git" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="footer-github"
+        >
+          🐱 View Source
+        </a>
       </div>
-      <p>&copy; {new Date().getFullYear()} Eden Aharon. All rights reserved.</p>
     </footer>
   );
 }
