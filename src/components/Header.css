@@ -1,4 +1,4 @@
-/* בסיסי */
+/* --- מבנה בסיסי --- */
 .side-nav {
   position: fixed;
   top: 50%;
@@ -10,7 +10,7 @@
   z-index: 1000;
 }
 
-/* Hamburger button */
+/* --- כפתור ההמבורגר --- */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -30,18 +30,15 @@
   transition: all 0.3s ease;
 }
 
-/* אנימציה לפתיחת Hamburger */
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* --- אנימציה עדינה בהובר על ההמבורגר --- */
+.hamburger:hover span:nth-child(1) {
+  transform: translateY(1px);
 }
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.hamburger:hover span:nth-child(3) {
+  transform: translateY(-1px);
 }
 
-/* רשימת קישורים */
+/* --- רשימת קישורים (ברירת מחדל מוסתרת) --- */
 .nav-links {
   display: flex;
   flex-direction: column;
@@ -52,19 +49,23 @@
   padding: 20px;
   margin-top: 15px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0,255,255,0.1);
   opacity: 0;
   visibility: hidden;
-  transform: translateX(50px);
+  transform: translateX(40px);
   transition: all 0.4s ease;
+  pointer-events: none;
 }
 
-.nav-links.show {
+/* --- כשהעכבר מעל הניווט או ההמבורגר – הצג את התפריט --- */
+.side-nav:hover .nav-links {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
+  pointer-events: auto;
 }
 
+/* --- עיצוב קישורים --- */
 .nav-links li {
   margin: 12px 0;
 }
@@ -81,7 +82,7 @@
   transform: scale(1.05);
 }
 
-/* רספונסיביות */
+/* --- רספונסיביות --- */
 @media (max-width: 768px) {
   .side-nav {
     right: 15px;

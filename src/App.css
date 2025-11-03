@@ -220,142 +220,224 @@ footer a {
   }
 }
 /* --- Hero Section --- */
-/* --- Hero Section --- */
+/* --- HERO --- */
 #hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 0 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0d0d1a, #1a1a2e, #2a2a44);
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  color: #fff;
 }
 
-/* רקע דינמי עם חלקיקים/קוים */
-#hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/connected.png'); /* רשת חלקיקים */
-  opacity: 0.1;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* כותרת ראשית */
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 800;
-  background: linear-gradient(90deg, #0ff, #c082ff);
+  background: linear-gradient(90deg, #0ff, #ff73d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-  margin-bottom: 20px;
-  z-index: 1;
+  text-shadow: 0 0 25px rgba(0,255,255,0.2);
 }
 
-/* כותרת משנית */
 .hero-subtitle {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: 2rem;
   color: #0ff;
-  margin-bottom: 20px;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
-  z-index: 1;
+  margin-bottom: 10px;
 }
 
-/* טקסט נוסף */
 .hero-text {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  color: #d0e7ff;
+  font-size: 1.2rem;
+  color: #d7eaff;
   line-height: 1.8;
   max-width: 700px;
-  margin: 0 auto 40px auto;
-  z-index: 1;
+  margin: 20px auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 36px;
-  font-size: 1.2rem;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 12px;
   font-weight: 700;
-  color: #0ff;
-  background-color: #1f1f2f;
-  border: 3px solid #0ff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.4);
-  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-  user-select: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.hero-btn:hover,
-.hero-btn:focus {
-  background-color: #0ff;
-  color: #1f1f2f;
-  box-shadow: 0 14px 40px rgba(0, 255, 255, 0.8);
-  transform: scale(1.08);
-  outline: none;
+.hero-btn.primary {
+  color: #0ff;
+  border: 2px solid #0ff;
+  background: rgba(0,255,255,0.08);
 }
 
-.btn-icon {
-  font-size: 1.5rem; /* גדול יותר מהטקסט */
-  line-height: 1;
-  display: inline-flex;
+.hero-btn.primary:hover {
+  background: #0ff;
+  color: #0b0b15;
+  box-shadow: 0 0 25px rgba(0,255,255,0.6);
+}
+
+.hero-btn.secondary {
+  color: #ff73d9;
+  border: 2px solid #ff73d9;
+  background: rgba(255,115,217,0.1);
+}
+
+.hero-btn.secondary:hover {
+  background: #ff73d9;
+  color: #0b0b15;
+  box-shadow: 0 0 25px rgba(255,115,217,0.6);
+}
+
+/* --- Animations --- */
+.animate-fade {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+.animate-slide {
+  opacity: 0;
+  animation: slideUp 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Skills Grid משולב --- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 30px;
+  margin-bottom: 30px;
+}
+
+.skill-item {
+  display: flex;
   align-items: center;
+  gap: 10px; /* רווח בין האייקון לשם */
+  background-color: rgba(0,255,255,0.1);
+  padding: 10px 15px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 4px rgba(0,255,255,0.2);
+  min-width: 120px;
+  justify-content: flex-start;
 }
 
+.icon-bg {
+  width: 35px;  /* קטן יותר */
+  height: 35px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
 
-/* אייקונים/איורים של קוד בצדדים */
-.hero-visuals {
+/* שמירת הצבעים והglow הקיימים */
+.skill-item.react .icon-bg {
+  background: linear-gradient(135deg, #5ed3f3, #2a99d8);
+  box-shadow: 0 0 15px #5ed3f3;
+}
+
+.skill-item.js .icon-bg {
+  background: linear-gradient(135deg, #f7df1e, #c7b92e);
+  box-shadow: 0 0 15px #f7df1e;
+}
+
+.skill-item.ts .icon-bg {
+  background: #007acc;
+  border-radius: 20%;
+  box-shadow: 0 0 12px #007acc;
+  position: relative;
+}
+.skill-item.ts .icon-bg::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  width: 18px;
+  height: 18px;
+  background: #005a9e;
+  transform: rotate(45deg);
+  border-radius: 10%;
+  top: 8px;
+  left: 8px;
   z-index: 0;
 }
 
-.hero-visuals svg {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  opacity: 0.05;
-  animation: floatVisual 12s ease-in-out infinite alternate;
+.skill-item.html .icon-bg {
+  background: linear-gradient(135deg, #e34f26, #bb3e1a);
+  box-shadow: 0 0 12px #e34f26;
+  border-radius: 50%;
 }
 
-@keyframes floatVisual {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(360deg); }
+.skill-item.css .icon-bg {
+  background: linear-gradient(135deg, #2965f1, #1e4eb8);
+  box-shadow: 0 0 12px #2965f1;
+  border-radius: 50%;
 }
 
-/* רספונסיביות */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
+.skill-item.node .icon-bg {
+  background: linear-gradient(135deg, #3c873a, #285227);
+  box-shadow: 0 0 12px #3c873a;
+  border-radius: 50%;
+}
 
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
+.skill-item.git .icon-bg {
+  background: linear-gradient(135deg, #f05032, #a23723);
+  box-shadow: 0 0 12px #f05032;
+  border-radius: 20%;
+}
 
-  .hero-text {
-    font-size: 1rem;
-  }
+.skill-item.python .icon-bg {
+  background: linear-gradient(135deg, #306998, #ffe873);
+  box-shadow: 0 0 12px #306998;
+  border-radius: 50%;
+}
+
+/* --- Skills Card הקטן יותר --- */
+.skills-card {
+  padding: 30px 30px 20px;
+  max-width: 800px;
+  width: 85%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,255,255,0.4);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0,255,255,0.3);
+}
+
+/* כותרת ותיאור מותאמים */
+.skills-card h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.skills-description {
+  font-size: 1rem;
+  max-width: 650px;
+  line-height: 1.5rem;
+  margin: 0 auto;
 }

@@ -11,6 +11,10 @@ import projects from './data/projects';
 import cv from './assets/Eden_Aharon_CV.pdf';
 import './App.css';
 
+// Icons
+import { FaReact } from 'react-icons/fa';
+
+
 function App() {
   return (
     <Router>
@@ -24,42 +28,87 @@ function App() {
             <div>
               {/* --- Hero Section --- */}
               <section id="hero">
+                <div className="hero-visuals"></div>
+
                 <div className="hero-content">
-                  <h2 className="hero-subtitle">Welcome!</h2>
-                  <h1 className="hero-title">Hi, I'm Eden</h1>
-                  <p className="hero-text">
-                    I'm a passionate frontend developer building clean and modern web applications.
+                  <h2 className="hero-subtitle animate-fade">Welcome!</h2>
+                  <h1 className="hero-title animate-slide">Hi, I'm Eden</h1>
+                  <p className="hero-text animate-fade">
+                    A creative frontend developer passionate about crafting
+                    elegant, fast and accessible digital experiences.
                   </p>
-                  <a href={cv} download className="hero-btn">
-                    <span class="btn-icon">⬇️</span>
-                    Download My Resume
-                  </a>
+
+                  <div className="hero-buttons animate-slide">
+                    <a href={cv} download className="hero-btn primary">
+                      <span className="btn-icon">⬇️</span>
+                      Download My Resume
+                    </a>
+
+                    <a href="#projects" className="hero-btn secondary">
+                      🚀 View My Projects
+                    </a>
+                  </div>
                 </div>
               </section>
 
-              {/* Home Section */}
+              {/* --- About Section --- */}
               <section id="home">
                 <img src={EdenImage} alt="Eden" />
                 <h1>Eden Aharon</h1>
                 <p>
-                  I am a passionate software developer specialized in Frontend
-                  development with React and JavaScript.
-                  I love building clean, modern, and user-friendly web applications.
+                  I'm a frontend developer specializing in React and JavaScript.
+                  I focus on clean code, modern UI/UX and smooth user experiences.
                 </p>
               </section>
 
-              {/* Skills Section */}
+              {/* --- Skills Section --- */}
               <section id="skills">
-                <div className="skills-card">
-                  <h2>My Skills</h2>
-                  <p>
-                    JavaScript • React • HTML • CSS • Node.js • TypeScript • Git • Redux •
-                    REST APIs • Responsive Design
-                  </p>
-                </div>
-              </section>
+  <div className="skills-card">
+    <h2>Skills & Technologies</h2>
 
-              {/* Projects Section */}
+    <div className="skills-grid">
+      <div className="skill-item react">
+        <div className="icon-bg"><FaReact /></div>
+        <span>React</span>
+      </div>
+      <div className="skill-item js">
+        <div className="icon-bg"></div>
+        <span>JavaScript</span>
+      </div>
+      <div className="skill-item ts">
+        <div className="icon-bg"></div>
+        <span>TypeScript</span>
+      </div>
+      <div className="skill-item html">
+        <div className="icon-bg"></div>
+        <span>HTML5</span>
+      </div>
+      <div className="skill-item css">
+        <div className="icon-bg"></div>
+        <span>CSS3</span>
+      </div>
+      <div className="skill-item node">
+        <div className="icon-bg"></div>
+        <span>Node.js</span>
+      </div>
+      <div className="skill-item git">
+        <div className="icon-bg"></div>
+        <span>Git</span>
+      </div>
+      <div className="skill-item python">
+        <div className="icon-bg"></div>
+        <span>Python</span>
+      </div>
+    </div>
+
+    <p className="skills-description">
+      Continuously learning and exploring new technologies to build better solutions.<br />
+      From frontend frameworks to backend systems, I love working across the full stack.
+    </p>
+  </div>
+</section>
+
+              {/* --- Projects Section --- */}
               <section id="projects">
                 <div className="projects-list">
                   {projects.map((proj) => (
@@ -68,7 +117,7 @@ function App() {
                 </div>
               </section>
 
-              {/* Contact Card Section */}
+              {/* --- Contact --- */}
               <ContactCard />
             </div>
           }
