@@ -10,6 +10,9 @@ import ContactCard from './components/ContactCard';
 import projects from './data/projects';
 import cv from './assets/Eden_Aharon_CV.pdf';
 import './App.css';
+import BackgroundParticles from './components/BackgroundParticles';
+import Typewriter from "./components/Typewriter";
+
 
 // Icons
 import { FaReact } from 'react-icons/fa';
@@ -28,6 +31,7 @@ function App() {
             <div>
               {/* --- Hero Section --- */}
               <section id="hero">
+                <BackgroundParticles />
                 <div className="hero-visuals"></div>
 
                 <div className="hero-content">
