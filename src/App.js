@@ -57,6 +57,7 @@ return ( <Router> <Header />
           {/* --- About Section --- */}
           <FadeInSection>
             <section id="home">
+              <h1 className="section-title">ABOUT ME</h1>
               <img src={EdenImage} alt="Eden" />
               <h1>Eden Aharon</h1>
               <p>
@@ -66,54 +67,46 @@ return ( <Router> <Header />
             </section>
           </FadeInSection>
 
-          {/* --- Skills Section --- */}
-          <FadeInSection>
-            <section id="skills">
-              <div className="skills-card">
-                <h2>Skills & Technologies</h2>
-
-                <div className="skills-grid">
-                  <div className="skill-item react">
-                    <div className="icon-bg"><FaReact /></div>
-                    <span>React</span>
-                  </div>
-                  <div className="skill-item js">
-                    <div className="icon-bg"></div>
-                    <span>JavaScript</span>
-                  </div>
-                  <div className="skill-item ts">
-                    <div className="icon-bg"></div>
-                    <span>TypeScript</span>
-                  </div>
-                  <div className="skill-item html">
-                    <div className="icon-bg"></div>
-                    <span>HTML5</span>
-                  </div>
-                  <div className="skill-item css">
-                    <div className="icon-bg"></div>
-                    <span>CSS3</span>
-                  </div>
-                  <div className="skill-item node">
-                    <div className="icon-bg"></div>
-                    <span>Node.js</span>
-                  </div>
-                  <div className="skill-item git">
-                    <div className="icon-bg"></div>
-                    <span>Git</span>
-                  </div>
-                  <div className="skill-item python">
-                    <div className="icon-bg"></div>
-                    <span>Python</span>
-                  </div>
-                </div>
-
-                <p className="skills-description">
-                  Continuously learning and exploring new technologies to build better solutions.<br />
-                  From frontend frameworks to backend systems, I love working across the full stack.
-                </p>
-              </div>
-            </section>
-          </FadeInSection>
+/* --- Skills Section --- */
+<FadeInSection>
+    <section id="skills">
+        {/* ⬅️ הכותרת הראשית נשארת בחוץ */}
+        <h1 className="section-title">SKILLS & TECHNOLOGIES</h1> 
+        
+        {/* --- בלוק 1: טכנולוגיות (Tech Components) --- */}
+        <h2 className="skills-subtitle tech-sub">💻 Core Technologies</h2>
+        <div className="skills-grid tech-grid"> 
+            
+            <div className="skill-item tech primary"><span>React</span></div>
+            <div className="skill-item tech primary"><span>Python (Flask)</span></div>
+            <div className="skill-item tech"><span>JavaScript (TS)</span></div>
+            <div className="skill-item tech"><span>Node.js / Express</span></div>
+            <div className="skill-item tech"><span>HTML5 / CSS3</span></div>
+            <div className="skill-item tech"><span>Git / GitHub</span></div>
+            
+        </div>
+        
+        {/* --- בלוק 2: מיומנויות ומושגים (Concept Components) --- */}
+        <h2 className="skills-subtitle concept-sub">💡 Concepts & Expertise</h2>
+        <div className="skills-grid concept-grid"> 
+            
+            <div className="skill-item concept primary"><span>Problem Solving</span></div>
+            <div className="skill-item concept"><span>OOP</span></div>
+            <div className="skill-item concept"><span>Self-Learning</span></div>
+            <div className="skill-item concept"><span>Accessible UI</span></div>
+            <div className="skill-item concept"><span>Teamwork</span></div>
+            <div className="skill-item concept"><span>Agile/Scrum</span></div> 
+            
+        </div>
+        
+        {/* ⬅️ תיאור נשאר כפסקה רגילה בתוך הסקשן */}
+        <p className="skills-description">
+            Continuously learning and exploring new technologies to build better solutions.<br />
+            From frontend frameworks to backend systems, I love working across the full stack.
+        </p>
+        
+    </section>
+</FadeInSection>
 
           {/* --- Projects Section --- */}
           <FadeInSection>
