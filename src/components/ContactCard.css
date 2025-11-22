@@ -5,19 +5,18 @@
     padding: 30px 40px;
     max-width: 600px;
     width: 90%;
-    margin: 40px auto; /* מרכוז */
-    text-align: left; /* יישור הטופס לשמאל */
+    margin: 40px auto;
+    text-align: left;
     
-    /* ⬅️ גלואו וגבול ניאון סגול/תכלת */
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 5px rgba(0, 255, 255, 0.1); 
-    border: 1px solid rgba(0, 255, 255, 0.4); /* צבע סגול שקוף יותר */
-    border: 1px solid rgba(0, 255, 255, 0.4); /* תכלת Secondary עם שקיפות 40% */
+    /* 💥 שינוי: גבול בסיס תכלת (Secondary) עם צל קבוע ורוד (Accent) */
+    border: 2px solid var(--color-secondary, #0ff); /* גבול תכלת בסיסי */
+    box-shadow: 0 0 15px rgba(255, 115, 217, 0.25); /* צל ורוד קבוע עדין */
 }
 
 .contact-card:hover {
-    transform: translateY(-3px); /* ריחוף עדין יותר */
-    /* ⬅️ גלואו חזק יותר בריחוף */
-    box-shadow: 0 0 40px var(--color-secondary);
+    transform: translateY(-3px);
+    /* 💥 שינוי: גלואו חזק יותר בריחוף - תכלת (Secondary) */
+    box-shadow: 0 0 40px var(--color-secondary, #0ff);
 }
 
 /* --- כותרת משנית --- */
@@ -25,7 +24,7 @@
     font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 40px;
-    text-align: center; /* כותרת משנית ממורכזת */
+    text-align: center;
 }
 
 /* --- עיצוב הפורם (תוויות ושדות) --- */
@@ -37,7 +36,7 @@
 .contact-form label {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-secondary); /* תכלת */
+    color: var(--color-secondary, #0ff); /* ⬅️ נשאר תכלת */
     margin-top: 15px;
     margin-bottom: 5px;
 }
@@ -46,21 +45,20 @@
 .contact-form textarea {
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: #0b0b15; /* רקע שחור יותר בתוך השדה */
+    border: 1px solid rgba(0, 255, 255, 0.2); /* ⬅️ נשאר גבול תכלת שקוף */
+    background-color: #0b0b15;
     color: #fff;
     font-size: 1rem;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.1); 
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.1); /* ⬅️ נשאר צל תכלת שקוף */
     transition: all 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    /* ⬅️ שינוי: Border בפוקוס עכשיו תכלת (Secondary) */
-    border-color: var(--color-secondary); 
-    /* ⬅️ שינוי: Box Shadow בפוקוס עכשיו תכלת (Secondary) */
-    box-shadow: 0 0 10px var(--color-secondary);
+    /* ⬅️ נשאר תכלת בפוקוס */
+    border-color: var(--color-secondary, #0ff); 
+    box-shadow: 0 0 15px var(--color-secondary, #0ff);
 }
 
 /* --- כפתור השליחה (Send Message) --- */
@@ -75,19 +73,20 @@
     text-transform: uppercase;
     cursor: pointer;
     
-    /* ⬅️ שינוי: רקע כפתור עכשיו תכלת (Secondary) */
-    background: var(--color-secondary); 
-    color: #0b0b15; /* טקסט כהה */
+    /* 💥 שינוי: רקע כפתור ורוד (Accent) - נגיעה בולטת */
+    background: var(--color-accent, #ff73d9); 
+    color: #0b0b15;
     
-    /* ⬅️ שינוי: גלואו עדין כבסיס - תכלת (Secondary) */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); /* ⬅️ ניאון שקט יותר (פחות עוצמה) */
+    /* 💥 שינוי: גלואו עדין כבסיס - ורוד (Accent) */
+    box-shadow: 0 0 10px rgba(255, 115, 217, 0.6); 
     transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-    /* ⬅️ גלואו חזק יותר בריחוף (משתמשים בצבע האקסנט - ורוד) */
-    background: var(--color-accent); 
-    box-shadow: 0 0 25px var(--color-accent), 0 0 5px var(--color-primary);
+    /* 💥 שינוי: בהובר, הכפתור הופך לתכלת זוהר (Secondary) */
+    background: var(--color-secondary, #0ff); 
+    color: #0b0b15;
+    box-shadow: 0 0 25px var(--color-secondary, #0ff);
     transform: translateY(-2px);
 }
 

@@ -42,10 +42,9 @@ return ( <Router> <Header />
           <section id="hero">
            
             <div className="hero-visuals"></div>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet"></link>
             <div className="hero-content">
-              <h2 className="hero-subtitle animate-fade">Welcome!</h2>
-              <h1 className="hero-title animate-slide">Hi, I'm Eden</h1>
+              <h1 className="hero-title animate-slide">Hi, I'm Eden aharon and Welcome to my portfolio</h1>
             <p className="hero-text animate-fade">
     I don't just write code; I <span className="keyword-highlight-secondary">engineer solutions</span>. Exploring the intersection of <span className="keyword-highlight-secondary">backend logic</span> and <span className="keyword-highlight-secondary">stunning frontend design</span> to solve <span className="keyword-highlight-secondary">real-world challenges</span>.
 </p>
