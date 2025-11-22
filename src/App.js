@@ -118,9 +118,9 @@ return ( <Router> <Header />
           {/* --- Projects Section --- */}
           <FadeInSection>
             <section id="projects">
+              <h1 className="section-title">PROJECTS</h1>
               <div className="projects-list">
-                {projects.map((proj) => (
-                  <ProjectCard key={proj.id} {...proj} />
+                {projects.map((proj) => (<ProjectCard key={proj.id} {...proj} technologies={proj.technologies} />
                 ))}
               </div>
             </section>
