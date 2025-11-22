@@ -98,11 +98,13 @@ section:not(#hero) {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   text-align: center;
+  border: 2px solid rgba(0, 255, 255, 0.4); 
+    border-radius: 12px; /* נותן פינות מעוגלות עקביות */
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,255,255,0.3);
+  box-shadow: 0 0 24px rgba(0,255,255,0.5);
 }
 
 .project-card img {
@@ -530,4 +532,45 @@ footer a {
     0 0 10px rgba(158, 116, 224, 0.8), /* צל בהיר ראשי */
     0 0 20px rgba(146, 105, 180, 0.6), /* צל רחב יותר */
     0 0 40px rgba(255, 0, 127, 0.4); /* צל משלים בצבע אחר (ורוד/מג'נטה) */
+}
+
+/* --- אייקונים צדדיים קבועים (Fixed Social Sidebar) --- */
+.fixed-social-sidebar {
+    /* ⬅️ הצמדה קבועה למסך */
+    position: fixed;
+    top: 65%; /* ⬅️ מיקום שמתחיל מתחת לניווט הקיים */
+    right: 30px; /* ⬅️ יישור לצד ימין */
+    
+    display: flex;
+    flex-direction: column; /* הצבה אנכית */
+    gap: 15px; /* מרווח בין האייקונים */
+    padding: 10px 0; /* מרווח פנימי */
+    
+    z-index: 999; /* מתחת לניווט הראשי (1000) */
+}
+
+/* עיצוב הקישורים והאייקונים (נשאר זהה) */
+.social-icon-link {
+    color: var(--color-secondary, #0ff); 
+    font-size: 1.8rem; 
+    transition: all 0.3s ease;
+    padding: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4); 
+}
+
+.social-icon-link:hover {
+    color: var(--color-accent, #ff73d9); 
+    transform: scale(1.15); 
+    cursor: pointer;
+    text-shadow: 0 0 15px var(--color-accent, #ff73d9); 
+}
+
+/* --- רספונסיביות למיקום --- */
+@media (max-width: 768px) {
+    .fixed-social-sidebar {
+        right: 15px; 
+        top: 60%; 
+        /* אפשרות: להסתיר לגמרי במובייל אם יש עומס */
+        /* display: none; */ 
+    }
 }

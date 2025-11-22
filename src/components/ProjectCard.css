@@ -33,6 +33,11 @@
   min-height: 380px; /* גובה מינימלי להתאמה */
   color: #ccc;
   text-decoration: none; /* הסרת קו תחתון מקישור */
+  /* ⬅️ שינוי: מסגרת תכלת מודגשת (2px) ושקטה */
+    border: 2px solid rgba(0, 255, 255, 0.4); 
+    
+    /* ⬅️ שינוי: גלואו בסיס עדין בתכלת */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
 }
 
 .project-card-container:hover {
@@ -162,14 +167,14 @@
 }
 
 .project-btn-primary {
-  background: #ff007f; /* צבע ורוד מודגש */
+  background:#ff73d9; /* צבע ורוד מודגש */
   color: #fff;
   box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
 }
 
 .project-btn-primary:hover {
-  background: #e60073;
-  box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
+  background:#ff73d9;
+  box-shadow: 0 0 20px #ff73d9
 }
 
 .project-btn-secondary {

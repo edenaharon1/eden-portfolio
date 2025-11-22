@@ -12,13 +12,24 @@ import cv from './assets/Eden_Aharon_CV.pdf';
 import './App.css';
 import BackgroundParticles from './components/BackgroundParticles';
 import FadeInSection from './components/FadeInSection';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 // Icons
 import { FaReact } from 'react-icons/fa';
 
 function App() {
 return ( <Router> <Header />
-
+<div className="fixed-social-sidebar">
+            <a href="https://www.linkedin.com/in/eden-aharon-418226329/" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaLinkedin className="icon" />
+            </a>
+            <a href="https://github.com/edenaharon1" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaGithub className="icon" />
+            </a>
+            <a href="mailto:edenah9@gmail.com" className="social-icon-link">
+              <FaEnvelope className="icon" />
+            </a>
+        </div>
 <BackgroundParticles />
   <Routes>
     {/* --- Home Page --- */}
