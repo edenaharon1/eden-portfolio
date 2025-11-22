@@ -75,7 +75,25 @@ section:not(#hero) {
   line-height: 1.6;
   padding: 0 10px;
 }
+/* --- הדגשת מילות מפתח בצבע התכלת (Secondary) --- */
+.keyword-highlight-secondary {
+    /* ⬅️ צבע תכלת משני */
+    color: var(--color-secondary); 
+    
+    /* ⬅️ הוספת עובי קל (בולט יותר מהטקסט הרגיל) */
+    font-weight: 700; 
+    
+    /* ⬅️ אפקט זוהר תכלת עדין */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); 
+    
+    /* מעבר חלק במקרה של שינוי צבע */
+    transition: color 0.3s, text-shadow 0.3s;
+}
 
+.keyword-highlight-secondary:hover {
+    /* ⬅️ זוהר חזק יותר בריחוף */
+    text-shadow: 0 0 12px var(--color-secondary); 
+}
 /* --- Projects List --- */
 .projects-list {
   display: flex;
@@ -233,12 +251,12 @@ footer a {
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
 }
 .skills-subtitle {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-top: 30px;
     margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     
     /* ⬅️ השינוי הנדרש: מרכוז הטקסט */
     text-align: center; 
@@ -526,12 +544,7 @@ footer a {
   margin-bottom: 60px; 
   text-transform: uppercase;
   letter-spacing: 5px; 
-  
-  /* אפקט ניאון חזק */
-  text-shadow: 
-    0 0 10px rgba(158, 116, 224, 0.8), /* צל בהיר ראשי */
-    0 0 20px rgba(146, 105, 180, 0.6), /* צל רחב יותר */
-    0 0 40px rgba(255, 0, 127, 0.4); /* צל משלים בצבע אחר (ורוד/מג'נטה) */
+
 }
 
 /* --- אייקונים צדדיים קבועים (Fixed Social Sidebar) --- */

@@ -46,10 +46,9 @@ return ( <Router> <Header />
             <div className="hero-content">
               <h2 className="hero-subtitle animate-fade">Welcome!</h2>
               <h1 className="hero-title animate-slide">Hi, I'm Eden</h1>
-              <p className="hero-text animate-fade">
-                A creative frontend developer passionate about crafting
-                elegant, fast and accessible digital experiences.
-              </p>
+            <p className="hero-text animate-fade">
+    I don't just write code; I <span className="keyword-highlight-secondary">engineer solutions</span>. Exploring the intersection of <span className="keyword-highlight-secondary">backend logic</span> and <span className="keyword-highlight-secondary">stunning frontend design</span> to solve <span className="keyword-highlight-secondary">real-world challenges</span>.
+</p>
 
               <div className="hero-buttons animate-slide">
                 <a href={cv} download className="hero-btn primary">
@@ -66,17 +65,24 @@ return ( <Router> <Header />
           </FadeInSection>
 
           {/* --- About Section --- */}
-          <FadeInSection>
-            <section id="home">
-              <h1 className="section-title">ABOUT ME</h1>
-              <img src={EdenImage} alt="Eden" />
-              <h1>Eden Aharon</h1>
-              <p>
-                I'm a frontend developer specializing in React and JavaScript.
-                I focus on clean code, modern UI/UX and smooth user experiences.
+         <FadeInSection>
+            <section id="home">
+              <h1 className="section-title">ABOUT ME</h1>
+              <img src={EdenImage} alt="Eden" />
+              <h1>Eden Aharon</h1>
+              <p>
+                A Bachelor's degree in <span className="keyword-highlight-secondary">Computer Science</span> with practical specialization in <span className="keyword-highlight-secondary">Full Stack</span> development. I bring practical experience from developing <span className="keyword-highlight-secondary">significant technological projects</span>, demonstrating advanced capabilities on both the client and server sides.
               </p>
-            </section>
-          </FadeInSection>
+
+              <p>
+                My academic background and specialized courses include expertise in <span className="keyword-highlight-secondary">Cloud Services (Cloud)</span> and <span className="keyword-highlight-secondary">DevOps</span> (such as CI/CD and automation).
+              </p>
+
+              <p>
+                I am driven by a passion to delve into the depths of <span className="keyword-highlight-secondary">complex technological problems</span> and formulate creative and elegant solutions. I am constantly seeking the next professional challenge where I can apply my knowledge to create efficient and high-quality products.
+              </p>
+            </section>
+          </FadeInSection>
 
 /* --- Skills Section --- */
 <FadeInSection>
