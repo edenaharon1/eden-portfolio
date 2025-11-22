@@ -1,29 +1,18 @@
 /* App.css */
 
-/* --- Body עם רקע נקודות --- */
+/* --- Body  --- */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #ffffff;
   scroll-behavior: smooth;
-  background: linear-gradient(135deg, #1f1c2c, #5e5b8d, #928dab);
+  /* הגדר רקע אחיד שחור או כהה מאוד */
+  background: #0b0b15; /* השתמש בצבע כהה קבוע */ 
   position: relative;
   overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,255,255,0.12) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
-  pointer-events: none;
-  z-index: 0;
-  animation: movePattern 20s linear infinite;
-}
+
 
 @keyframes movePattern {
   0% { transform: translate(0,0); }
@@ -305,15 +294,27 @@ footer a {
   box-shadow: 0 0 25px rgba(255,115,217,0.6);
 }
 
-/* --- Animations --- */
-.animate-fade {
+
+/* 1. מצב התחלה (Start State) - האלמנט לא נראה */
+.animate-start {
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease; /* ודא שיש Transition */
 }
-.animate-slide {
+
+/* 2. מצב נראה (End State) - האלמנט גלוי וממוקם */
+.animate-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. אנימציה מיוחדת לכותרת (אם רוצים slideUp חזק יותר) */
+.animate-slide-start {
   opacity: 0;
-  animation: slideUp 1s ease forwards;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -325,6 +326,18 @@ footer a {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* 1. מצב התחלתי: כל רכיב בתוך FadeInSection מוסתר */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease-out; /* הוספת Transition למעבר חלק */
+}
+
+/* 2. מצב גלוי: כאשר הרכיב נכנס למסך, הוא מקבל את הקלאס is-visible */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 /* --- Skills Grid משולב --- */
 .skills-grid {
   display: flex;
@@ -443,3 +456,4 @@ footer a {
   line-height: 1.5rem;
   margin: 0 auto;
 }
+
