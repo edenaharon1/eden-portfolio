@@ -1,87 +1,99 @@
+/* --- הקלף המרכזי של הטופס --- */
 .contact-card {
-  background-color: rgba(20, 20, 35, 0.9);
-  border-radius: 20px;
-  padding: 50px 40px;
-  max-width: 400px;
-  width: 90%;
-  margin: 100px auto;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
-  border: 2px solid rgba(0, 255, 255, 0.3);
-  backdrop-filter: blur(12px);
-  position: relative;
-  z-index: 10; /* חשוב */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #171725; /* רקע כהה */
+    border-radius: 15px;
+    padding: 30px 40px;
+    max-width: 600px;
+    width: 90%;
+    margin: 40px auto; /* מרכוז */
+    text-align: left; /* יישור הטופס לשמאל */
+    
+    /* ⬅️ גלואו וגבול ניאון סגול/תכלת */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 5px rgba(0, 255, 255, 0.1); 
+    border: 1px solid rgba(0, 255, 255, 0.4); /* צבע סגול שקוף יותר */
+    border: 1px solid rgba(0, 255, 255, 0.4); /* תכלת Secondary עם שקיפות 40% */
 }
 
 .contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 255, 255, 0.5);
+    transform: translateY(-3px); /* ריחוף עדין יותר */
+    /* ⬅️ גלואו חזק יותר בריחוף */
+    box-shadow: 0 0 40px var(--color-secondary);
 }
 
-/* --- התוכן הפנימי עם אנימציה --- */
-.contact-card-content {
-  animation: floatContact 6s ease-in-out infinite alternate;
+/* --- כותרת משנית --- */
+.contact-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    text-align: center; /* כותרת משנית ממורכזת */
 }
 
-.contact-card h2 {
-  font-size: 2rem;
-  color: #0ff;
-  font-weight: 700;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+/* --- עיצוב הפורם (תוויות ושדות) --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* --- כפתורי הקשר --- */
-.contact-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+.contact-form label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-secondary); /* תכלת */
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #0b0b15; /* רקע שחור יותר בתוך השדה */
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.1); 
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    /* ⬅️ שינוי: Border בפוקוס עכשיו תכלת (Secondary) */
+    border-color: var(--color-secondary); 
+    /* ⬅️ שינוי: Box Shadow בפוקוס עכשיו תכלת (Secondary) */
+    box-shadow: 0 0 10px var(--color-secondary);
+}
+
+/* --- כפתור השליחה (Send Message) --- */
 .contact-btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: 2px solid #0ff;
-  background: rgba(0, 255, 255, 0.1);
-  color: #0ff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    /* ⬅️ שינוי: רקע כפתור עכשיו תכלת (Secondary) */
+    background: var(--color-secondary); 
+    color: #0b0b15; /* טקסט כהה */
+    
+    /* ⬅️ שינוי: גלואו עדין כבסיס - תכלת (Secondary) */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); /* ⬅️ ניאון שקט יותר (פחות עוצמה) */
+    transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-  background-color: #0ff;
-  color: #111;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-  transform: translateY(-3px);
+    /* ⬅️ גלואו חזק יותר בריחוף (משתמשים בצבע האקסנט - ורוד) */
+    background: var(--color-accent); 
+    box-shadow: 0 0 25px var(--color-accent), 0 0 5px var(--color-primary);
+    transform: translateY(-2px);
 }
 
-/* --- אנימציה צפה --- */
-@keyframes floatContact {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-12px); }
-}
-
-/* --- רספונסיביות --- */
-@media (max-width: 768px) {
-  .contact-card {
-    padding: 40px 25px;
-  }
-
-  .contact-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .contact-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
+/* רספונסיביות לטופס */
+@media (max-width: 600px) {
+    .contact-card {
+        padding: 20px;
+    }
 }
