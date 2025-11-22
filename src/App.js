@@ -12,13 +12,24 @@ import cv from './assets/Eden_Aharon_CV.pdf';
 import './App.css';
 import BackgroundParticles from './components/BackgroundParticles';
 import FadeInSection from './components/FadeInSection';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 // Icons
 import { FaReact } from 'react-icons/fa';
 
 function App() {
 return ( <Router> <Header />
-
+<div className="fixed-social-sidebar">
+            <a href="https://www.linkedin.com/in/eden-aharon-418226329/" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaLinkedin className="icon" />
+            </a>
+            <a href="https://github.com/edenaharon1" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaGithub className="icon" />
+            </a>
+            <a href="mailto:edenah9@gmail.com" className="social-icon-link">
+              <FaEnvelope className="icon" />
+            </a>
+        </div>
 <BackgroundParticles />
   <Routes>
     {/* --- Home Page --- */}
@@ -35,10 +46,9 @@ return ( <Router> <Header />
             <div className="hero-content">
               <h2 className="hero-subtitle animate-fade">Welcome!</h2>
               <h1 className="hero-title animate-slide">Hi, I'm Eden</h1>
-              <p className="hero-text animate-fade">
-                A creative frontend developer passionate about crafting
-                elegant, fast and accessible digital experiences.
-              </p>
+            <p className="hero-text animate-fade">
+    I don't just write code; I <span className="keyword-highlight-secondary">engineer solutions</span>. Exploring the intersection of <span className="keyword-highlight-secondary">backend logic</span> and <span className="keyword-highlight-secondary">stunning frontend design</span> to solve <span className="keyword-highlight-secondary">real-world challenges</span>.
+</p>
 
               <div className="hero-buttons animate-slide">
                 <a href={cv} download className="hero-btn primary">
@@ -55,72 +65,72 @@ return ( <Router> <Header />
           </FadeInSection>
 
           {/* --- About Section --- */}
-          <FadeInSection>
-            <section id="home">
-              <img src={EdenImage} alt="Eden" />
-              <h1>Eden Aharon</h1>
-              <p>
-                I'm a frontend developer specializing in React and JavaScript.
-                I focus on clean code, modern UI/UX and smooth user experiences.
+         <FadeInSection>
+            <section id="home">
+              <h1 className="section-title">ABOUT ME</h1>
+              <img src={EdenImage} alt="Eden" />
+              <h1>Eden Aharon</h1>
+              <p>
+                A Bachelor's degree in <span className="keyword-highlight-secondary">Computer Science</span> with practical specialization in <span className="keyword-highlight-secondary">Full Stack</span> development. I bring practical experience from developing <span className="keyword-highlight-secondary">significant technological projects</span>, demonstrating advanced capabilities on both the client and server sides.
               </p>
-            </section>
-          </FadeInSection>
 
-          {/* --- Skills Section --- */}
-          <FadeInSection>
-            <section id="skills">
-              <div className="skills-card">
-                <h2>Skills & Technologies</h2>
+              <p>
+                My academic background and specialized courses include expertise in <span className="keyword-highlight-secondary">Cloud Services (Cloud)</span> and <span className="keyword-highlight-secondary">DevOps</span> (such as CI/CD and automation).
+              </p>
 
-                <div className="skills-grid">
-                  <div className="skill-item react">
-                    <div className="icon-bg"><FaReact /></div>
-                    <span>React</span>
-                  </div>
-                  <div className="skill-item js">
-                    <div className="icon-bg"></div>
-                    <span>JavaScript</span>
-                  </div>
-                  <div className="skill-item ts">
-                    <div className="icon-bg"></div>
-                    <span>TypeScript</span>
-                  </div>
-                  <div className="skill-item html">
-                    <div className="icon-bg"></div>
-                    <span>HTML5</span>
-                  </div>
-                  <div className="skill-item css">
-                    <div className="icon-bg"></div>
-                    <span>CSS3</span>
-                  </div>
-                  <div className="skill-item node">
-                    <div className="icon-bg"></div>
-                    <span>Node.js</span>
-                  </div>
-                  <div className="skill-item git">
-                    <div className="icon-bg"></div>
-                    <span>Git</span>
-                  </div>
-                  <div className="skill-item python">
-                    <div className="icon-bg"></div>
-                    <span>Python</span>
-                  </div>
-                </div>
+              <p>
+                I am driven by a passion to delve into the depths of <span className="keyword-highlight-secondary">complex technological problems</span> and formulate creative and elegant solutions. I am constantly seeking the next professional challenge where I can apply my knowledge to create efficient and high-quality products.
+              </p>
+            </section>
+          </FadeInSection>
 
-                <p className="skills-description">
-                  Continuously learning and exploring new technologies to build better solutions.<br />
-                  From frontend frameworks to backend systems, I love working across the full stack.
-                </p>
-              </div>
-            </section>
-          </FadeInSection>
+/* --- Skills Section --- */
+<FadeInSection>
+    <section id="skills">
+        {/* ⬅️ הכותרת הראשית נשארת בחוץ */}
+        <h1 className="section-title">SKILLS & TECHNOLOGIES</h1> 
+        
+        {/* --- בלוק 1: טכנולוגיות (Tech Components) --- */}
+        <h2 className="skills-subtitle tech-sub">💻 Core Technologies</h2>
+        <div className="skills-grid tech-grid"> 
+            
+            <div className="skill-item tech primary"><span>React</span></div>
+            <div className="skill-item tech primary"><span>Python (Flask)</span></div>
+            <div className="skill-item tech"><span>JavaScript (TS)</span></div>
+            <div className="skill-item tech"><span>Node.js / Express</span></div>
+            <div className="skill-item tech"><span>HTML5 / CSS3</span></div>
+            <div className="skill-item tech"><span>Git / GitHub</span></div>
+            
+        </div>
+        
+        {/* --- בלוק 2: מיומנויות ומושגים (Concept Components) --- */}
+        <h2 className="skills-subtitle concept-sub">💡 Concepts & Expertise</h2>
+        <div className="skills-grid concept-grid"> 
+            
+            <div className="skill-item concept primary"><span>Problem Solving</span></div>
+            <div className="skill-item concept"><span>OOP</span></div>
+            <div className="skill-item concept"><span>Self-Learning</span></div>
+            <div className="skill-item concept"><span>Accessible UI</span></div>
+            <div className="skill-item concept"><span>Teamwork</span></div>
+            <div className="skill-item concept"><span>Agile/Scrum</span></div> 
+            
+        </div>
+        
+        {/* ⬅️ תיאור נשאר כפסקה רגילה בתוך הסקשן */}
+        <p className="skills-description">
+            Continuously learning and exploring new technologies to build better solutions.<br />
+            From frontend frameworks to backend systems, I love working across the full stack.
+        </p>
+        
+    </section>
+</FadeInSection>
 
           {/* --- Projects Section --- */}
           <FadeInSection>
             <section id="projects">
+              <h1 className="section-title">PROJECTS</h1>
               <div className="projects-list">
-                {projects.map((proj) => (
-                  <ProjectCard key={proj.id} {...proj} />
+                {projects.map((proj) => (<ProjectCard key={proj.id} {...proj} technologies={proj.technologies} />
                 ))}
               </div>
             </section>
