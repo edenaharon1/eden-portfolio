@@ -280,12 +280,20 @@ footer a {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 800;
-  background: linear-gradient(90deg, #0ff, #ff73d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 25px rgba(0,255,255,0.2);
+    /* ⬅️ החזרה לגודל גדול ומסיבי */
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-weight: 800;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    /* ⬅️ החזרת ה-Gradient (תכלת-ורוד) */
+    background: linear-gradient(90deg, #d7eaff, #ffffff); /* מעבר לבן/תכלת בהיר */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* ⬅️ החזרת צל לבן עדין מאוד (Text-Shadow) */
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    
+    /* ודא שמאפייני הצבע הקודמים מוסרים אם השתמשת בהם: */
+    color: unset;
 }
 
 .hero-subtitle {
