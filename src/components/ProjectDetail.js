@@ -38,7 +38,6 @@ function ProjectDetail({ projects }) {
                 <FaGithub className="link-icon" /> GitHub
               </a>
             )}
-
             {project.liveLink && (
               <a href={project.liveLink} target="_blank" rel="noopener noreferrer" title="Live Demo">
                 <FaExternalLinkAlt className="link-icon" /> Live Demo
@@ -62,6 +61,21 @@ function ProjectDetail({ projects }) {
         <section className="project-section about-section">
           <h2>Project Overview</h2>
           <p>{project.fullDescription}</p>
+        </section>
+      )}
+
+      {/* ⭐ Challenges & Solutions */}
+      {project.challenges && project.challenges.length > 0 && (
+        <section className="project-section challenges-section">
+          <h2>Challenges & Solutions</h2>
+          <ul>
+            {project.challenges.map((item, index) => (
+              <li key={index}>
+                <strong>Challenge:</strong> {item.challenge}<br />
+                <strong>Solution:</strong> {item.solution}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 
