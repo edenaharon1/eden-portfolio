@@ -1,124 +1,304 @@
+/* CONTAINER - הגדרות כלליות לכרטיס */
 .project-detail {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 30px 40px;
-  background: linear-gradient(135deg, rgba(31,31,47,0.95), rgba(20,20,35,0.95));
-  border-radius: 25px;
-  color: #fff;
-  text-align: center;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,255,255,0.2);
-  backdrop-filter: blur(8px);
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(31,31,47,0.95), rgba(20,20,35,0.95));
+    border-radius: 25px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,255,255,0.3);
+    backdrop-filter: blur(8px);
+}
+
+/* כפתור חזרה עליון */
+.top-back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    padding: 8px 15px;
+    background: rgba(0,255,255,0.1);
+    color: #0ff;
+    border: 1px solid #0ff;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.top-back-link:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 10px #0ff;
+    transform: scale(1.02);
+}
+
+/* ------------------------------------- */
+/* 1. כותרת וסיכום (HEADER) */
+/* ------------------------------------- */
+.project-header {
+    display: grid;
+    grid-template-columns: 150px 1fr; 
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+    text-align: left;
 }
 
 /* לוגו הפרויקט */
+.project-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .project-logo img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #0ff;
-  box-shadow: 0 4px 20px rgba(0,255,255,0.4);
-  margin-bottom: 25px;
-  transition: transform 0.3s;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #0ff;
+    box-shadow: 0 0 15px rgba(0,255,255,0.6); 
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-logo img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #0ff;
 }
 
 /* שם הפרויקט */
-.project-detail h1 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #0ff;
-  text-shadow: 0 0 8px rgba(0,255,255,0.7);
+.project-summary h1 {
+    font-size: 2.8rem;
+    margin: 0 0 10px 0;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8);
+    line-height: 1.2;
 }
 
-/* סקשנים */
+/* ------------------------------------- */
+/* 2. תגיות וקישורים (Tags & Links) */
+/* ------------------------------------- */
+
+/* קונטיינר אייקונים */
+.project-links-icons {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.project-links-icons a {
+    display: flex;
+    align-items: center;
+    color: #0ff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.link-icon {
+    font-size: 1.5rem;
+    margin-inline-end: 8px;
+}
+
+.project-links-icons a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #0ff;
+    text-decoration: underline;
+}
+
+/* תגיות טכנולוגיה (Tags) */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background: rgba(0,255,255,0.15);
+    color: #0ff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(0,255,255,0.5);
+    transition: background 0.3s;
+}
+
+.tech-tag:hover {
+    background: rgba(0,255,255,0.3);
+}
+
+
+/* ------------------------------------- */
+/* 3. סקשנים (Sections) - בסיס כללי ומחובר */
+/* ------------------------------------- */
 .project-section {
-  margin-bottom: 50px;
-  text-align: left;
-  padding: 20px;
-  background: rgba(20,20,35,0.6);
-  border-radius: 20px;
-  box-shadow: inset 0 0 15px rgba(0,255,255,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+    /* הסרת מרווח חיצוני והגדרת ריפוד בסיס קטן */
+    margin-bottom: 0; 
+    text-align: left;
+    padding: 8px 20px; 
+    background: rgba(20,20,35,0.6);
+    border-radius: 0; 
+    border-bottom: 1px solid rgba(0,255,255,0.1);
+    box-shadow: none; 
+    transition: background 0.3s;
+}
+
+/* כללים כלליים לכותרות ופסקאות בסקשנים (דורס על ידי about-section) */
+.project-section h2 {
+    font-size: 1.8rem;
+    color: #0ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(0,255,255,0.5);
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(0,255,255,0.2);
+}
+
+.project-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #eee;
 }
 
 .project-section:hover {
-  transform: translateY(-3px);
-  box-shadow: inset 0 0 25px rgba(0,255,255,0.2);
+    transform: none; 
+    background: rgba(20,20,35,0.7);
+    box-shadow: none;
 }
 
-.project-section h2 {
-  font-size: 1.6rem;
-  color: #0ff;
-  margin-bottom: 15px;
-  text-shadow: 0 0 5px rgba(0,255,255,0.5);
+/* 🚀 שינויים לצמצום בלוק About (Project Overview) 🚀 */
+.about-section {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    /* ריפוד אנכי מינימלי חזק - הצמדה למסגרת */
+    padding: 5px 20px !important; 
 }
 
-.project-section p,
-.project-section ul {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
+.about-section h2 {
+    margin-bottom: 3px; /* מרווח מינימלי מתחת לכותרת */
+    padding-top: 5px; 
+    padding-bottom: 3px; 
+    border-bottom: 1px solid rgba(0,255,255,0.2); 
+    font-size: 1.5rem; 
 }
 
-/* רשימה של טכנולוגיות */
-.project-section ul {
-  list-style: disc;
-  padding-left: 25px;
+.about-section p {
+    line-height: 1.3; /* צמצום רווח השורה למינימום */
+    font-size: 0.95rem; 
+    margin-top: 3px; 
+    padding-bottom: 3px; /* דוחף מעט את המסגרת מלמטה */
+    margin-bottom: 0;
+    color: #ccc;
 }
 
-.project-video iframe {
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 20px rgba(0,255,255,0.3);
-  transition: transform 0.3s;
+/* 🎥 שינויים לסקשן Video Demo 🎥 */
+.video-section {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: none;
+    
+    /* צמצום הריפוד העליון של סקשן הוידאו כדי להיצמד לסקשן הקודם */
+    padding-top: 5px; 
 }
 
-.project-video iframe:hover {
-  transform: scale(1.02);
+.video-section h2 {
+    /* הקטנת המרווח מתחת לכותרת "Video Demo" */
+    margin-bottom: 5px; 
 }
 
-/* אייקונים של GitHub */
-.project-detail-icons {
-  margin: 30px 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+/* ------------------------------------- */
+/* 4. סקשן וידאו (Video) - הקטנת גובה */
+/* ------------------------------------- */
+.project-video-embed {
+    position: relative;
+    width: 100%;
+    /* יחס גובה-רוחב מצומצם (40% גובה) */
+    padding-bottom: 40%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,255,255,0.4);
 }
 
-.project-detail-icons a {
-  color: #0ff;
-  font-size: 2.5rem;
-  transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+.project-video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-.project-detail-icons a:hover {
-  transform: scale(1.3);
-  color: #fff;
-  text-shadow: 0 0 15px #0ff;
+.project-video-embed:hover {
+    box-shadow: 0 5px 30px rgba(0,255,255,0.6);
 }
 
-/* כפתור חזרה */
-.back-link {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 10px 25px;
-  background: #0ff;
-  color: #000;
-  border-radius: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.3s, background 0.3s;
+/* ------------------------------------- */
+/* 5. כפתור חזרה תחתון */
+/* ------------------------------------- */
+
+.bottom-back-link {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 30px;
+    background: #0ff;
+    color: #000;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
-.back-link:hover {
-  transform: scale(1.05);
-  background: #00cccc;
+.bottom-back-link:hover {
+    transform: scale(1.05);
+    background: #00cccc;
+    box-shadow: 0 0 20px #0ff;
 }
+/* צמצום רווחים בין כל הסקשנים */
+.project-section {
+    margin-bottom: 5px !important; /* היה 0 – עכשיו אפילו יותר צמוד */
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* צמצום עוד יותר לתיאור */
+.about-section {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+/* ווידאו */
+.video-section {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+.close-window-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0,255,255,0.15);
+    border: 1px solid #0ff;
+    color: #0ff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+.close-window-btn:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 15px #0ff;
+    transform: scale(1.1);
+}
+

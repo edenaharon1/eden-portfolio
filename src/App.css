@@ -278,24 +278,90 @@ footer a {
   overflow: hidden;
   color: #fff;
 }
+/* --- הגדרת אנימציה לכניסה הדרגתית (Fade-In) --- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* מתחיל מעט מתחת למיקום הסופי */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes centerOutTyping {
+  from { width: 0 }
+  to { width: 100% }
+}
 
+/* --- הגדרת אנימציה להסתרת הסמן (חדשה) --- */
+@keyframes stop-blinking {
+  to { border-right-color: transparent; } /* הופך את הגבול לשקוף */
+}
+.hero-title-wrapper {
+  text-align: center; /* ממורכז את האלמנט הפנימי */
+  width: 100%;
+}
+/* --- הכותרת הפנימית (האלמנט המונפש) --- */
 .hero-title {
-    /* ⬅️ החזרה לגודל גדול ומסיבי */
+    /* ⬅️ החזרת המאפיינים החסרים לאפקט ה-Typing */
+    display: inline-block; /* חיוני כדי שה-width יעבוד */
+    overflow: hidden; /* חיוני כדי להסתיר את הטקסט */
+    white-space: nowrap; /* חיוני כדי לשמור את הטקסט בשורה אחת */
+    
+    /* ⬅️ הוספת צל טקסט בסיסי כדי שהטקסט ייראה גם כשהוא שקוף */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+
+    /* ... קוד עיצובי קיים ... */
     font-size: clamp(1.5rem, 6vw, 3rem);
     font-weight: 800;
     font-family: 'Poppins', 'Montserrat', sans-serif;
-    /* ⬅️ החזרת ה-Gradient (תכלת-ורוד) */
-    background: linear-gradient(90deg, #d7eaff, #ffffff); /* מעבר לבן/תכלת בהיר */
+    
+    /* הצבע Gradient - נשאר */
+    background: linear-gradient(90deg, #d7eaff, #ffffff); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-    /* ⬅️ החזרת צל לבן עדין מאוד (Text-Shadow) */
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     
-    /* ודא שמאפייני הצבע הקודמים מוסרים אם השתמשת בהם: */
-    color: unset;
+    /* סמן קבוע - נשאר */
+    border-right: .15em solid #0ff; 
+    
+    width: 0; 
+    margin: 0 auto; 
+    
+    /* היישום המשולב של האנימציות - נשאר */
+    animation: 
+        centerOutTyping 4s steps(45, end) forwards,
+        stop-blinking 0.01s 4s forwards;
 }
 
+.hero-title-2 {
+  font-size: 2.2rem; /* ⬅️ הגדלה קלה של הגופן */
+  font-weight: 800; /* ⬅️ בולד יותר חזק */
+  margin-top: 5px; /* ⬅️ מרווח קטן יותר מהכותרת הראשית */
+  margin-bottom: 30px;
+  line-height: 1.5;
+  
+  /* 💥 שינוי: צבע ורוד (Accent) וצל זוהר ורוד מוגבר */
+  color: var(--color-accent, #ff73d9); 
+  text-transform: uppercase; /* ⬅️ אופציונלי: הופך את הטקסט לאותיות גדולות (יותר בולט) */
+  
+  /* 🌟 אפקט זוהר ורוד ממוקד וחזק */
+  text-shadow:
+    0 0 8px rgba(255, 115, 217, 0.7), /* צל קרוב: הפחתת פיזור (8px) והאטימות (0.7) */
+    0 0 15px rgba(255, 115, 217, 0.2); /* צל מרוחק: הפחתה משמעותית של הפיזור והאטימות (0.2) */
+
+    opacity: 0; /* ⬅️ חובה: מתחיל ככותרת נסתרת */
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.5s; /* ⬅️ שינוי: מתחיל חצי שניה לאחר הכותרת הראשית */
+}
+
+/* --- רספונסיביות למסכים קטנים --- */
+@media (max-width: 768px) {
+  .hero-title-2 {
+    font-size: 1.6rem;
+  }
+}
 .hero-subtitle {
   font-size: 2rem;
   color: #0ff;
