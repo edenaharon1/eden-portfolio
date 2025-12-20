@@ -1,8 +1,4 @@
 // src/data/projects.js
-import socialAI from '../assets/social.ai.png';
-import socialVideo from '../assets/videos/social.ai.mp4';
-import adoptADogImage from '../assets/AdoptADog.png';
-import adoptADogVideo from '../assets/videos/AdoptADog.mp4';
 
 const projects = [
   // ----------------------------------------------------
@@ -25,8 +21,6 @@ The system automatically uploads content according to a pre-scheduled schedule m
       'Instagram Graph API', 
       'Google Analytics API', 
       'Swagger'], 
-    image: socialAI,
-    video: socialVideo,
     github: 'https://github.com/sapirindig/Final-project.git',
     challenges: [
       {
@@ -60,8 +54,6 @@ The system automatically uploads content according to a pre-scheduled schedule m
 Users can view nearby dogs on a Google Map, comment on posts, and connect with organizations to adopt a dog. 
 The app features Firebase authentication for secure user login and profile management, as well as real-time updates for posts and comments.`, 
   technologies: ['Kotlin', 'Firebase Authentication', 'Google Maps API', 'REST API', 'Room Database'], 
-  image: adoptADogImage, // replace with appropriate image
-  video: adoptADogVideo, // replace with appropriate video
   github: 'https://github.com/edenaharon1/Adopt-A-Dog.git',
   challenges: [
     {

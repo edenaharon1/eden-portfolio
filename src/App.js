@@ -14,9 +14,6 @@ import BackgroundParticles from './components/BackgroundParticles';
 import FadeInSection from './components/FadeInSection';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
-// Icons
-import { FaReact } from 'react-icons/fa';
-
 function App() {
 return ( <Router> <Header />
 <div className="fixed-social-sidebar">
@@ -91,7 +88,6 @@ return ( <Router> <Header />
 /* --- Skills Section --- */
 <FadeInSection>
     <section id="skills">
-        {/* ⬅️ הכותרת הראשית נשארת בחוץ */}
         <h1 className="section-title">SKILLS & TECHNOLOGIES</h1> 
         
         {/* --- בלוק 1: טכנולוגיות (Tech Components) --- */}
