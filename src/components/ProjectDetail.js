@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; 
 import './ProjectDetail.css';
 
@@ -38,7 +38,6 @@ function ProjectDetail({ projects }) {
                 <FaGithub className="link-icon" /> GitHub
               </a>
             )}
-
             {project.liveLink && (
               <a href={project.liveLink} target="_blank" rel="noopener noreferrer" title="Live Demo">
                 <FaExternalLinkAlt className="link-icon" /> Live Demo
@@ -65,18 +64,18 @@ function ProjectDetail({ projects }) {
         </section>
       )}
 
-      {project.video && (
-        <section className="project-section video-section">
-          <h2>Video Demo</h2>
-          <div className="project-video-embed">
-            <iframe
-              src={project.video}
-              title={project.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+      {/* ⭐ Challenges & Solutions */}
+      {project.challenges && project.challenges.length > 0 && (
+        <section className="project-section challenges-section">
+          <h2>Challenges & Solutions</h2>
+          <ul>
+            {project.challenges.map((item, index) => (
+              <li key={index}>
+                <strong>Challenge:</strong> {item.challenge}<br />
+                <strong>Solution:</strong> {item.solution}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
     </div>
