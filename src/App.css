@@ -1,5 +1,3 @@
-/* App.css */
-
 :root {
     --color-primary: #B900FF; /* סגול שולט חדש */
     --color-secondary: #0ff; /* תכלת משני */
@@ -12,13 +10,10 @@ body {
   font-family: 'Inter', sans-serif;
   color: #ffffff;
   scroll-behavior: smooth;
-  /* הגדר רקע אחיד שחור או כהה מאוד */
-  background: #0b0b15; /* השתמש בצבע כהה קבוע */ 
+  background: #0b0b15;
   position: relative;
   overflow-x: hidden;
 }
-
-
 
 @keyframes movePattern {
   0% { transform: translate(0,0); }
@@ -33,16 +28,11 @@ body {
   justify-content: center;
   min-height: 90vh;
   text-align: center;
-  padding: 50px;
-  position: relative;
   padding: 120px 20px;
+  position: relative;
   z-index: 1;
 }
-/* --- כלל גנרי למרווח בין סקשנים ראשיים --- */
-section:not(#hero) {
-    /* ⬅️ מוודא שכל סקשן מקבל מרווח עקבי, למעט ה-Hero אם הוא מוגדר בנפרד */
-    padding: 120px 20px; 
-}
+
 #home img {
   border-radius: 50%;
   width: 40vw;
@@ -60,10 +50,6 @@ section:not(#hero) {
   box-shadow: 0 0 35px rgba(0,255,255,0.6);
 }
 
-/* --- Home Section (About) --- */
-/* ... קוד קיים ... */
-
-/* עדכון: עיצוב השם בתוך סקשן About, ה-h1 החיצוני הוא section-title */
 #home h1{
   font-size: 2rem;
   margin: 10px 0 20px 0;
@@ -75,63 +61,51 @@ section:not(#hero) {
   line-height: 1.6;
   padding: 0 10px;
 }
+
 /* --- הדגשת מילות מפתח בצבע התכלת (Secondary) --- */
 .keyword-highlight-secondary {
-    /* ⬅️ צבע תכלת משני */
     color: var(--color-secondary); 
-    
-    /* ⬅️ הוספת עובי קל (בולט יותר מהטקסט הרגיל) */
     font-weight: 700; 
-    
-    /* ⬅️ אפקט זוהר תכלת עדין */
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); 
-    
-    /* מעבר חלק במקרה של שינוי צבע */
     transition: color 0.3s, text-shadow 0.3s;
 }
 
 .keyword-highlight-secondary:hover {
-    /* ⬅️ זוהר חזק יותר בריחוף */
     text-shadow: 0 0 12px var(--color-secondary); 
 }
+
 /* --- Projects List --- */
 .projects-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px; 
+  justify-items: center; 
   margin: 50px 0;
   padding: 0;
-  background: transparent;
-  z-index: 1;
-  position: relative; /* חשוב כדי שה-z-index יעבוד */
- 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --- Project Card --- */
 .project-card {
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #1f1f2f;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   text-align: center;
-  border: 2px solid rgba(0, 255, 255, 0.4); 
-    border-radius: 12px; /* נותן פינות מעוגלות עקביות */
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 12px;
+  flex: 1 1 calc(50% - 15px);
+  max-width: calc(50% - 15px);
+  box-sizing: border-box;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 24px rgba(0,255,255,0.5);
-}
-
-.project-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid #0ff;
 }
 
 .project-card h3 {
@@ -141,10 +115,16 @@ section:not(#hero) {
   font-weight: 600;
 }
 
-.project-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #ccc;
+/* --- רספונסיביות --- */
+@media (max-width: 768px) {
+ .projects-list {
+    grid-template-columns: 1fr; 
+  }
+
+  .project-card {
+    flex: 1 1 90%; 
+    max-width: none;
+  }
 }
 
 /* --- Footer --- */
@@ -186,70 +166,72 @@ footer a {
     align-items: center;
   }
 }
-/* --- Skills Section (מנקה את הכרטיס הגדול) --- */
+
+/* --- Skills Section --- */
 #skills {
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center; 
-    
-    /* ⬅️ שינוי ה-Padding: מרווח גדול יותר מעל ומתחת לסקשן */
     padding: 120px 20px; 
-    
     background: none;
     position: relative;
     z-index: 1;
 }
-/* --- עיצוב הצומת/רכיב (Component Node) --- */
+
+/* --- Skills Grid --- */
 .skills-grid {
-    /* נשמור על המבנה הקיים, אך נגדיל את הרווח החיצוני */
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    gap: 25px 40px; /* ⬅️ רווח גדול יותר בין הריבועים */
-    margin: 30px auto 50px auto; /* ⬅️ רווח גדול יותר מעל ומתחת לגריד */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+    margin-bottom: 30px;
 }
 
 .skill-item {
-    /* ⬅️ Padding גדול יותר בתוך הריבוע */
-    padding: 18px 10px; 
-    border-radius: 6px; /* ⬅️ פינות מרובעות קלות */
-    font-weight: 700;
-    font-size: 1.15rem; /* גופן מעט גדול יותר */
-    
-    /* ⬅️ גבולות רכיב עבים יותר */
-    border: 4px solid transparent; 
-    
-    /* רקע קצת בהיר יותר כדי לתת ניגודיות לגבול */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: #12121e; 
-    
-    /* ⬅️ צל קל כבסיס */
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1); 
+    padding: 18px 10px;
+    border-radius: 12px; 
+    font-weight: 700;
+    font-size: 1.15rem; 
+    transition: all 0.5s ease-in-out; 
+    border: 4px solid transparent; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
 
-/* ⬅️ טכנולוגיות (תכלת - Primary) */
-.skill-item.tech {
-    border-color: rgba(0, 255, 255, 0.6);
-}
-.skill-item.tech.primary {
-    /* ⬅️ Border עבה ובולט */
-    border-color: var(--color-secondary);
-    /* ⬅️ צל בסיס חזק */
-    box-shadow: 0 0 15px var(--color-secondary); 
-}
-
-/* ⬅️ מושגים (ורוד - Secondary/Accent) */
-.skill-item.concept {
-    border-color: rgba(255, 115, 217, 0.6);
-}
-.skill-item.concept.primary {
-    /* ⬅️ Border עבה ובולט */
-    border-color: var(--color-accent);
-    /* ⬅️ צל בסיס חזק */
-    box-shadow: 0 0 15px var(--color-accent); 
-}
+/* --- צבעים רגילים (Glow עדין כברירת מחדל) --- */
+.skill-item.tech,
 .skills-subtitle.tech-sub {
-    color: var(--color-secondary); /* תכלת */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+    border-color: rgba(0,255,255,0.3);   
+    color: var(--color-secondary);
+    text-shadow: 0 0 6px rgba(0,255,255,0.2); 
 }
+
+.skill-item.concept,
+.skills-subtitle.concept-sub {
+    border-color: rgba(255,115,217,0.3);
+    color: var(--color-accent);
+    text-shadow: 0 0 6px rgba(255,115,217,0.2); 
+}
+
+/* --- hover: Glow חזק --- */
+.skill-item.tech:hover {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 40px var(--color-secondary);
+    background-color: rgba(0,255,255,0.05);
+}
+
+.skill-item.concept:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 40px var(--color-accent);
+    background-color: rgba(255,115,217,0.05);
+}
+
+/* --- כותרות משניות --- */
 .skills-subtitle {
     font-size: 1.5rem;
     font-weight: 600;
@@ -257,15 +239,53 @@ footer a {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
-    /* ⬅️ השינוי הנדרש: מרכוז הטקסט */
-    text-align: center; 
+    text-align: center;
+}
+
+.skills-subtitle.tech-sub {
+    color: var(--color-secondary);
+    text-shadow: 0 0 6px rgba(0,255,255,0.2);
 }
 
 .skills-subtitle.concept-sub {
-    color: var(--color-accent); /* ורוד */
-    text-shadow: 0 0 10px rgba(255, 115, 217, 0.4);
+    color: var(--color-accent);
+    text-shadow: 0 0 6px rgba(255,115,217,0.2);
 }
+
+/* --- Skills Card הקטן יותר --- */
+.skills-card {
+  padding: 30px 30px 20px;
+  max-width: 800px;
+  width: 85%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,255,255,0.4);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0,255,255,0.3);
+}
+
+.skills-card h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.skills-description {
+  font-size: 1rem;
+  max-width: 650px;
+  line-height: 1.5rem;
+  margin: 0 auto;
+}
+
+/* --- כותרות סקשן אחיד --- */
+.section-title {
+  color: #fff;
+  font-size: 2.0rem; 
+  font-weight: 800;
+  text-align: center; 
+  margin-bottom: 60px; 
+  text-transform: uppercase;
+  letter-spacing: 5px; 
+}
+
 /* --- HERO --- */
 #hero {
   display: flex;
@@ -278,90 +298,68 @@ footer a {
   overflow: hidden;
   color: #fff;
 }
-/* --- הגדרת אנימציה לכניסה הדרגתית (Fade-In) --- */
+
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); /* מתחיל מעט מתחת למיקום הסופי */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes centerOutTyping {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* --- הגדרת אנימציה להסתרת הסמן (חדשה) --- */
 @keyframes stop-blinking {
-  to { border-right-color: transparent; } /* הופך את הגבול לשקוף */
+  to { border-right-color: transparent; } 
 }
+
 .hero-title-wrapper {
-  text-align: center; /* ממורכז את האלמנט הפנימי */
+  text-align: center;
   width: 100%;
 }
-/* --- הכותרת הפנימית (האלמנט המונפש) --- */
-.hero-title {
-    /* ⬅️ החזרת המאפיינים החסרים לאפקט ה-Typing */
-    display: inline-block; /* חיוני כדי שה-width יעבוד */
-    overflow: hidden; /* חיוני כדי להסתיר את הטקסט */
-    white-space: nowrap; /* חיוני כדי לשמור את הטקסט בשורה אחת */
-    
-    /* ⬅️ הוספת צל טקסט בסיסי כדי שהטקסט ייראה גם כשהוא שקוף */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
 
-    /* ... קוד עיצובי קיים ... */
+.hero-title {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
     font-size: clamp(1.5rem, 6vw, 3rem);
     font-weight: 800;
     font-family: 'Poppins', 'Montserrat', sans-serif;
-    
-    /* הצבע Gradient - נשאר */
     background: linear-gradient(90deg, #d7eaff, #ffffff); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-    
-    /* סמן קבוע - נשאר */
     border-right: .15em solid #0ff; 
-    
     width: 0; 
     margin: 0 auto; 
-    
-    /* היישום המשולב של האנימציות - נשאר */
     animation: 
         centerOutTyping 4s steps(45, end) forwards,
         stop-blinking 0.01s 4s forwards;
 }
 
 .hero-title-2 {
-  font-size: 2.2rem; /* ⬅️ הגדלה קלה של הגופן */
-  font-weight: 800; /* ⬅️ בולד יותר חזק */
-  margin-top: 5px; /* ⬅️ מרווח קטן יותר מהכותרת הראשית */
+  font-size: 2.2rem; 
+  font-weight: 800; 
+  margin-top: 5px; 
   margin-bottom: 30px;
   line-height: 1.5;
-  
-  /* 💥 שינוי: צבע ורוד (Accent) וצל זוהר ורוד מוגבר */
   color: var(--color-accent, #ff73d9); 
-  text-transform: uppercase; /* ⬅️ אופציונלי: הופך את הטקסט לאותיות גדולות (יותר בולט) */
-  
-  /* 🌟 אפקט זוהר ורוד ממוקד וחזק */
+  text-transform: uppercase; 
   text-shadow:
-    0 0 8px rgba(255, 115, 217, 0.7), /* צל קרוב: הפחתת פיזור (8px) והאטימות (0.7) */
-    0 0 15px rgba(255, 115, 217, 0.2); /* צל מרוחק: הפחתה משמעותית של הפיזור והאטימות (0.2) */
-
-    opacity: 0; /* ⬅️ חובה: מתחיל ככותרת נסתרת */
+    0 0 8px rgba(255, 115, 217, 0.7), 
+    0 0 15px rgba(255, 115, 217, 0.2); 
+  opacity: 0; 
   animation: fadeIn 1s ease-out forwards;
-  animation-delay: 0.5s; /* ⬅️ שינוי: מתחיל חצי שניה לאחר הכותרת הראשית */
+  animation-delay: 0.5s;
 }
 
-/* --- רספונסיביות למסכים קטנים --- */
 @media (max-width: 768px) {
   .hero-title-2 {
     font-size: 1.6rem;
   }
 }
+
 .hero-subtitle {
   font-size: 2rem;
   color: #0ff;
@@ -423,241 +421,50 @@ footer a {
   box-shadow: 0 0 25px rgba(255,115,217,0.6);
 }
 
-
-/* 1. מצב התחלה (Start State) - האלמנט לא נראה */
-.animate-start {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease; /* ודא שיש Transition */
-}
-
-/* 2. מצב נראה (End State) - האלמנט גלוי וממוקם */
-.animate-end {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 3. אנימציה מיוחדת לכותרת (אם רוצים slideUp חזק יותר) */
-.animate-slide-start {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 1. מצב התחלתי: כל רכיב בתוך FadeInSection מוסתר */
+/* --- FadeInSection --- */
 .fade-in-section {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.7s ease-out; /* הוספת Transition למעבר חלק */
+    transition: all 0.7s ease-out; 
 }
 
-/* 2. מצב גלוי: כאשר הרכיב נכנס למסך, הוא מקבל את הקלאס is-visible */
 .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-/* --- Skills Grid משולב --- */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px 30px;
-  margin-bottom: 30px;
-}
 
-.skill-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    background-color: #12121e; 
-    
-    padding: 18px 10px;
-    
-    /* ⬅️ שינוי 1: פינות מכוגלות יותר (מ-6px ל-12px) */
-    border-radius: 12px; 
-    
-    font-weight: 700;
-    font-size: 1.15rem; 
-    
-    /* ⬅️ שינוי 2: מעבר (Transition) ארוך ועדין יותר (מ-0.3s ל-0.5s) */
-    transition: all 0.5s ease-in-out; 
-    
-    /* גבולות רכיב עבים יותר נשמרים */
-    border: 4px solid transparent; 
-    
-    /* ⬅️ צל בסיס עדין וקבוע לריחוף קל תמידי */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-}
-.skill-item:hover {
-    /* ⬅️ קפיצה קלה למעלה (פחות מודגש מ-5px) */
-    transform: translateY(-5px); 
-    
-    /* ⬅️ הרקע ב-Hover עדין וחלש מאוד */
-    background-color: rgba(0, 255, 255, 0.05); 
-    
-    /* ⬅️ הגלואו חזק אך המעבר אליו עדין (0.5s) */
-    box-shadow: 0 0 40px var(--color-secondary); 
-    
-    z-index: 10;
-}
-
-.icon-bg {
-  width: 35px;  /* קטן יותר */
-  height: 35px;
-  font-size: 1.5rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 12px rgba(255,255,255,0.4);
-}
-
-/* שמירת הצבעים והglow הקיימים */
-.skill-item.react .icon-bg {
-  background: linear-gradient(135deg, #5ed3f3, #2a99d8);
-  box-shadow: 0 0 15px #5ed3f3;
-}
-
-.skill-item.js .icon-bg {
-  background: linear-gradient(135deg, #f7df1e, #c7b92e);
-  box-shadow: 0 0 15px #f7df1e;
-}
-
-.skill-item.ts .icon-bg {
-  background: #007acc;
-  border-radius: 20%;
-  box-shadow: 0 0 12px #007acc;
-  position: relative;
-}
-.skill-item.ts .icon-bg::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: #005a9e;
-  transform: rotate(45deg);
-  border-radius: 10%;
-  top: 8px;
-  left: 8px;
-  z-index: 0;
-}
-
-.skill-item.html .icon-bg {
-  background: linear-gradient(135deg, #e34f26, #bb3e1a);
-  box-shadow: 0 0 12px #e34f26;
-  border-radius: 50%;
-}
-
-.skill-item.css .icon-bg {
-  background: linear-gradient(135deg, #2965f1, #1e4eb8);
-  box-shadow: 0 0 12px #2965f1;
-  border-radius: 50%;
-}
-
-.skill-item.node .icon-bg {
-  background: linear-gradient(135deg, #3c873a, #285227);
-  box-shadow: 0 0 12px #3c873a;
-  border-radius: 50%;
-}
-
-.skill-item.git .icon-bg {
-  background: linear-gradient(135deg, #f05032, #a23723);
-  box-shadow: 0 0 12px #f05032;
-  border-radius: 20%;
-}
-
-.skill-item.python .icon-bg {
-  background: linear-gradient(135deg, #306998, #ffe873);
-  box-shadow: 0 0 12px #306998;
-  border-radius: 50%;
-}
-
-/* --- Skills Card הקטן יותר --- */
-.skills-card {
-  padding: 30px 30px 20px;
-  max-width: 800px;
-  width: 85%;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,255,255,0.4);
-  backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(0,255,255,0.3);
-}
-
-/* כותרת ותיאור מותאמים */
-.skills-card h2 {
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.skills-description {
-  font-size: 1rem;
-  max-width: 650px;
-  line-height: 1.5rem;
-  margin: 0 auto;
-}
-
-/* --- עיצוב כותרות סקשן אחיד (ABOUT, SKILLS, PROJECTS, CONTACT) --- */
-.section-title {
-  color: #fff; /* זה עדיין לבן, אבל ה-text-shadow ייתן את הצבע */
-  font-size: 2.0rem; 
-  font-weight: 800;
-  text-align: center; 
-  margin-bottom: 60px; 
-  text-transform: uppercase;
-  letter-spacing: 5px; 
-
-}
-
-/* --- אייקונים צדדיים קבועים (Fixed Social Sidebar) --- */
+/* --- Fixed Social Sidebar --- */
 .fixed-social-sidebar {
-    /* ⬅️ הצמדה קבועה למסך */
     position: fixed;
-    top: 65%; /* ⬅️ מיקום שמתחיל מתחת לניווט הקיים */
-    right: 30px; /* ⬅️ יישור לצד ימין */
-    
+    top: 65%;
+    right: 30px;
     display: flex;
-    flex-direction: column; /* הצבה אנכית */
-    gap: 15px; /* מרווח בין האייקונים */
-    padding: 10px 0; /* מרווח פנימי */
-    
-    z-index: 999; /* מתחת לניווט הראשי (1000) */
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+    z-index: 999; 
 }
 
-/* עיצוב הקישורים והאייקונים (נשאר זהה) */
-.social-icon-link {
-    color: var(--color-secondary, #0ff); 
-    font-size: 1.8rem; 
+/* --- אייקונים של רשתות חברתיות --- */
+.social-icon-link,
+.email-icon-wrapper .icon {
+    font-size: 1.8rem;
+    color: var(--color-secondary, #0ff);
     transition: all 0.3s ease;
-    padding: 5px;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4); 
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
 }
 
-.social-icon-link:hover {
-    color: var(--color-accent, #ff73d9); 
-    transform: scale(1.15); 
+.social-icon-link:hover,
+.email-icon-wrapper:hover .icon {
+    color: var(--color-accent, #ff73d9);
+    transform: scale(1.15);
+    text-shadow: 0 0 15px var(--color-accent, #ff73d9);
     cursor: pointer;
-    text-shadow: 0 0 15px var(--color-accent, #ff73d9); 
 }
 
-/* --- רספונסיביות למיקום --- */
 @media (max-width: 768px) {
     .fixed-social-sidebar {
         right: 15px; 
         top: 60%; 
-        /* אפשרות: להסתיר לגמרי במובייל אם יש עומס */
-        /* display: none; */ 
     }
 }

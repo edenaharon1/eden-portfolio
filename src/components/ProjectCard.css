@@ -3,71 +3,43 @@
 /* מיכל עוטף לכפתורים ב-App.js כדי ליישר את הפרויקטים בצורה נכונה */
 #projects .projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* יצירת גריד רספונסיבי */
+  grid-template-columns: 1fr;
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* כותרת הסקשן */
-.section-title {
-  color: #fff;
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 50px;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* אפקט ניאון לכותרת */
-}
-
-/* הכרטיס עצמו - סגנון כהה ומעוגל */
 .project-card-container {
+  width: 100%;
+  max-width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* שומר על מבנה זורם */
   padding: 25px;
-  background: rgba(30, 30, 45, 0.8); /* רקע כהה יותר */
+  background: rgba(30, 30, 45, 0.8);
   border-radius: 20px;
-  border: 1px solid rgba(0, 255, 255, 0.1); /* גבול עדין בצבע ניאון */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* צל עמוק */
-  backdrop-filter: blur(5px); /* טשטוש קל אם יש רקע מאחור */
+  border: 2px solid rgba(0, 255, 255, 0.4); 
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
   transition: transform 0.3s, box-shadow 0.3s;
-  min-height: 380px; /* גובה מינימלי להתאמה */
+  min-height: 380px;
   color: #ccc;
-  text-decoration: none; /* הסרת קו תחתון מקישור */
-  /* ⬅️ שינוי: מסגרת תכלת מודגשת (2px) ושקטה */
-    border: 2px solid rgba(0, 255, 255, 0.4); 
-    
-    /* ⬅️ שינוי: גלואו בסיס עדין בתכלת */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .project-card-container:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3); /* צל מואר בריחוף */
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
 }
 
-/* כותרת הפרויקט ותגית סוג הפרויקט */
-.project-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.project-card-title-link {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s;
-}
-
-.project-card-title-link:hover h3 {
-  color: #0ff;
-}
-
+/* הכותרת המקורית */
 .project-card h3 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 800;
   color: #fff;
-  font-weight: 700;
-  margin: 0;
+  margin: 0 0 15px 0;
+  text-align: left;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .project-type-badge {
@@ -79,14 +51,23 @@
   border-radius: 10px;
   align-self: flex-start;
   flex-shrink: 0;
+  margin-bottom: 15px;
 }
 
-/* גוף הכרטיס - תיאור ותכונות */
+/* ⬅️ השינוי המרכזי: חלוקת הגוף לשני צדדים כדי למלא את החלל */
 .project-card-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
   flex-grow: 1;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* צד שמאל: טקסט ופיצ'רים */
+.project-content-left {
+  flex: 1.2;
 }
 
 .project-card-body p {
@@ -109,7 +90,7 @@
 }
 
 .project-key-features li::before {
-  content: "•"; /* כדורית צבעונית */
+  content: "•";
   color: #0ff;
   font-weight: bold;
   display: inline-block; 
@@ -117,18 +98,19 @@
   margin-left: -1em;
 }
 
-/* טכנולוגיות וטקסט תחתון */
+/* ⬅️ צד ימין: ה-TECH עובר לכאן כדי למלא את החלל הריק */
 .project-card-footer {
+  flex: 0.8;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: center; /* ממרכז את הטכנולוגיות מול הטקסט */
 }
 
 .project-tech-tags {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 10px;
+  justify-content: flex-start;
 }
 
 .tech-label {
@@ -136,6 +118,8 @@
   color: #0ff;
   text-transform: uppercase;
   font-size: 0.9rem;
+  width: 100%; /* גורם למילה TECH להיות מעל התגים */
+  margin-bottom: 10px;
 }
 
 .tech-tag {
@@ -145,9 +129,10 @@
   padding: 4px 8px;
   border-radius: 5px;
   font-weight: 500;
+  border: 1px solid rgba(0, 255, 255, 0.2);
 }
 
-/* כפתורים - בהשראת הכפתורים שבתמונה */
+/* כפתורים - נשארו בדיוק באותו עיצוב ומיקום בתחתית */
 .project-card-buttons {
   display: flex;
   gap: 10px;
@@ -167,14 +152,15 @@
 }
 
 .project-btn-primary {
-  background:#ff73d9; /* צבע ורוד מודגש */
+  background:#ff73d9;
   color: #fff;
   box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+  border: none;
 }
 
 .project-btn-primary:hover {
   background:#ff73d9;
-  box-shadow: 0 0 20px #ff73d9
+  box-shadow: 0 0 20px #ff73d9;
 }
 
 .project-btn-secondary {
@@ -187,4 +173,11 @@
   background: #0ff;
   color: #000;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* התאמה לניידים - מחזיר את ה-TECH למטה כשאין מקום בצדדים */
+@media (max-width: 768px) {
+  .project-card-body {
+    flex-direction: column;
+  }
 }

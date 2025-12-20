@@ -48,40 +48,35 @@
 }
 
 /* לוגו הפרויקט */
-/* ------------------------------------- */
-/* Project Logo - Modern Rounded Style */
-/* ------------------------------------- */
 .project-logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%; /* עיגול מלא */
+    border-radius: 50%;
     overflow: hidden;
     width: 150px;
     height: 150px;
-    margin: 0 auto; /* ממקם במרכז העמוד */
-    border: 3px solid rgba(0, 255, 255, 0.5); /* גבול תכלת שקוף */
-    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3); /* צל מודרני */
+    margin: 0 auto;
+    border: 3px solid rgba(0, 255, 255, 0.5);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* מתאים את התמונה למרכז */
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
 .project-logo:hover {
-    transform: scale(1.1); /* הגדלה עדינה */
-    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.5); /* הדגשת צל בזמן hover */
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.5);
 }
 
 /* ------------------------------------- */
 /* 2. תגיות וקישורים (Tags & Links) */
 /* ------------------------------------- */
-
-/* קונטיינר אייקונים */
 .project-links-icons {
     display: flex;
     gap: 25px;
@@ -109,38 +104,40 @@
     text-decoration: underline;
 }
 
-/* תגיות טכנולוגיה (Tags) */
-.tech-tags {
+/* תגיות טכנולוגיה - חדש, רק בפרטי הפרויקט */
+.project-detail-tech-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    flex-wrap: nowrap;          /* אין שבירה לשורה חדשה */
+    gap: 10px;                  /* רווח בין תגיות */
+    justify-content: flex-start; /* תיישור לשמאל */
+    margin-top: 20px;
 }
 
-.tech-tag {
+.project-detail-tech-tags .tech-tag {
+    flex: 1 1 auto;             
+    text-align: center;         
     background: rgba(0,255,255,0.15);
     color: #0ff;
-    padding: 6px 12px;
+    padding: 6px 8px;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     border: 1px solid rgba(0,255,255,0.5);
-    transition: background 0.3s;
+    white-space: nowrap;
 }
 
-.tech-tag:hover {
+.project-detail-tech-tags .tech-tag:hover {
     background: rgba(0,255,255,0.3);
 }
-
 
 /* ------------------------------------- */
 /* 3. סקשנים (Sections) - בסיס כללי ומחובר */
 /* ------------------------------------- */
 .project-section {
-    /* הסרת מרווח חיצוני והגדרת ריפוד בסיס קטן */
-    margin-bottom: 0; 
+    margin-bottom: 5px !important;
     text-align: left;
-    padding: 8px 20px; 
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
     background: rgba(20,20,35,0.6);
     border-radius: 0; 
     border-bottom: 1px solid rgba(0,255,255,0.1);
@@ -148,7 +145,6 @@
     transition: background 0.3s;
 }
 
-/* כללים כלליים לכותרות ופסקאות בסקשנים (דורס על ידי about-section) */
 .project-section h2 {
     font-size: 1.8rem;
     color: #0ff;
@@ -170,17 +166,16 @@
     box-shadow: none;
 }
 
-/* 🚀 שינויים לצמצום בלוק About (Project Overview) 🚀 */
+/* About Section */
 .about-section {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    
-    /* ריפוד אנכי מינימלי חזק - הצמדה למסגרת */
-    padding: 5px 20px !important; 
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
 }
 
 .about-section h2 {
-    margin-bottom: 3px; /* מרווח מינימלי מתחת לכותרת */
+    margin-bottom: 3px;
     padding-top: 5px; 
     padding-bottom: 3px; 
     border-bottom: 1px solid rgba(0,255,255,0.2); 
@@ -188,36 +183,30 @@
 }
 
 .about-section p {
-    line-height: 1.3; /* צמצום רווח השורה למינימום */
-    font-size: 0.95rem; 
-    margin-top: 3px; 
-    padding-bottom: 3px; /* דוחף מעט את המסגרת מלמטה */
+    line-height: 1.3;
+    font-size: 0.95rem;
+    margin-top: 3px;
+    padding-bottom: 3px;
     margin-bottom: 0;
     color: #ccc;
 }
 
-/* 🎥 שינויים לסקשן Video Demo 🎥 */
+/* Video Section */
 .video-section {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom: none;
-    
-    /* צמצום הריפוד העליון של סקשן הוידאו כדי להיצמד לסקשן הקודם */
-    padding-top: 5px; 
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
 }
 
 .video-section h2 {
-    /* הקטנת המרווח מתחת לכותרת "Video Demo" */
     margin-bottom: 5px; 
 }
 
-/* ------------------------------------- */
-/* 4. סקשן וידאו (Video) - הקטנת גובה */
-/* ------------------------------------- */
 .project-video-embed {
     position: relative;
     width: 100%;
-    /* יחס גובה-רוחב מצומצם (40% גובה) */
     padding-bottom: 40%; 
     height: 0;
     overflow: hidden;
@@ -238,10 +227,7 @@
     box-shadow: 0 5px 30px rgba(0,255,255,0.6);
 }
 
-/* ------------------------------------- */
-/* 5. כפתור חזרה תחתון */
-/* ------------------------------------- */
-
+/* כפתור חזרה תחתון */
 .bottom-back-link {
     display: inline-block;
     margin-top: 40px;
@@ -260,24 +246,8 @@
     background: #00cccc;
     box-shadow: 0 0 20px #0ff;
 }
-/* צמצום רווחים בין כל הסקשנים */
-.project-section {
-    margin-bottom: 5px !important; /* היה 0 – עכשיו אפילו יותר צמוד */
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-}
 
-/* צמצום עוד יותר לתיאור */
-.about-section {
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-}
-
-/* ווידאו */
-.video-section {
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-}
+/* Close button */
 .close-window-btn {
     position: absolute;
     top: 20px;
@@ -300,11 +270,10 @@
     box-shadow: 0 0 15px #0ff;
     transform: scale(1.1);
 }
-/* ------------------------------------- */
-/* 6. Challenges & Solutions Section */
-/* ------------------------------------- */
+
+/* Challenges Section */
 .challenges-section {
-    background: rgba(0, 255, 255, 0.05); /* רקע מעט שקוף תכלת */
+    background: rgba(0, 255, 255, 0.05);
     border-radius: 20px;
     padding: 25px 30px;
     margin: 25px 0;
@@ -327,18 +296,11 @@
     padding-bottom: 8px;
 }
 
-/* רשימה מותאמת */
-.challenges-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
 .challenge-item {
     display: flex;
-    flex-direction: column; /* מפריד את Challenge והSolution לשורות נפרדות */
+    flex-direction: column;
     gap: 5px;
-    margin-bottom: 20px; /* מרווח בין פריטים */
+    margin-bottom: 20px;
     font-size: 1rem;
     line-height: 1.5;
     color: #ddd;
@@ -357,7 +319,6 @@
     font-size: 1.4rem;
 }
 
-/* Challenge ו-Solution */
 .challenge-item strong {
     color: #0ff;
 }
@@ -366,4 +327,3 @@
     margin: 0;
     padding-left: 5px;
 }
-

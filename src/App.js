@@ -127,7 +127,7 @@ function App() {
                   </p>
 
                   <p>
-                    My academic background and specialized courses include expertise in <span className="keyword-highlight-secondary">Cloud Services (Cloud)</span> and <span className="keyword-highlight-secondary">DevOps</span> (such as CI/CD and automation).
+                    My academic background and specialized courses include introductory courses and projects in <span className="keyword-highlight-secondary">Cloud Services (Cloud)</span> and <span className="keyword-highlight-secondary">DevOps</span> (such as CI/CD and automation).
                   </p>
 
                   <p>
@@ -160,7 +160,6 @@ function App() {
                     <div className="skill-item concept"><span>Self-Learning</span></div>
                     <div className="skill-item concept"><span>Accessible UI</span></div>
                     <div className="skill-item concept"><span>Teamwork</span></div>
-                    <div className="skill-item concept"><span>Agile/Scrum</span></div> 
                   </div>
 
                   <p className="skills-description">

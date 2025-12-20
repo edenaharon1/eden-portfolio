@@ -6,13 +6,11 @@ import './ProjectDetail.css';
 function ProjectDetail({ projects }) {
   const { id } = useParams();
 
-  // ⭐ גלילה מיידית לראש הדף בלי אנימציה
   useEffect(() => {
     window.scrollTo(0, 0); 
   }, []);
 
   const project = projects.find(p => p.id === id);
-
   if (!project) return <p>Project not found</p>;
 
   return (
@@ -46,11 +44,9 @@ function ProjectDetail({ projects }) {
           </div>
 
           {project.technologies && project.technologies.length > 0 && (
-            <div className="tech-tags">
+            <div className="project-detail-tech-tags">
               {project.technologies.map((tech, index) => (
-                <span key={index} className="tech-tag">
-                  {tech}
-                </span>
+                <span key={index} className="tech-tag">{tech}</span>
               ))}
             </div>
           )}
@@ -64,7 +60,6 @@ function ProjectDetail({ projects }) {
         </section>
       )}
 
-      {/* ⭐ Challenges & Solutions */}
       {project.challenges && project.challenges.length > 0 && (
         <section className="project-section challenges-section">
           <h2>Challenges & Solutions</h2>
