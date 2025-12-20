@@ -115,18 +115,6 @@ body {
   font-weight: 600;
 }
 
-/* --- רספונסיביות --- */
-@media (max-width: 768px) {
- .projects-list {
-    grid-template-columns: 1fr; 
-  }
-
-  .project-card {
-    flex: 1 1 90%; 
-    max-width: none;
-  }
-}
-
 /* --- Footer --- */
 footer {
   padding: 40px 20px;
@@ -160,11 +148,39 @@ footer a {
     width: 60vw;
     height: 60vw;
   }
+    /* --- התאמת סקשן הפרויקטים למובייל --- */
+    
+    .projects-list {
+        /* הופך את הגריד לעמודה אחת במקום שתיים */
+        grid-template-columns: 1fr !important; 
+        gap: 20px !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
 
-  .projects-list {
-    flex-direction: column;
-    align-items: center;
-  }
+    .project-card {
+        /* מבטל את הגבלת ה-50% מה-Desktop */
+        flex: 1 1 100% !important; 
+        max-width: 100% !important; 
+        width: 100% !important;
+        
+        /* שיפור המראה הפנימי במובייל */
+        padding: 20px !important;
+        margin: 0 auto;
+    }
+
+    .project-card h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* תיקון קטן לתמונה ב-About שמופיע אצלך בקוד */
+    #home img {
+        width: 65vw !important;
+        height: 65vw !important;
+        max-width: 250px !important;
+        max-height: 250px !important;
+    }
 }
 
 /* --- Skills Section --- */
@@ -355,9 +371,48 @@ footer a {
 }
 
 @media (max-width: 768px) {
-  .hero-title-2 {
-    font-size: 1.6rem;
-  }
+    /* 1. תיקון הכותרת שבורחת הצידה */
+    .hero-title {
+        white-space: normal !important; /* מבטל את השורה האחת ומאפשר ירידת שורה */
+        width: 100% !important;
+        font-size: 1.8rem !important; /* גודל שמתאים לרוחב של אייפון */
+        line-height: 1.2;
+        border-right: none !important; /* מבטל את הסמן של ההקלדה אם הוא מפריע במובייל */
+        animation: none !important; /* מבטל את אנימציית הרוחב שגורמת לחיתוך */
+    }
+
+    .hero-title-2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 20px !important;
+        opacity: 1 !important; /* מוודא שהיא מוצגת */
+    }
+
+    /* 2. סידור הכפתורים שנחתכים - אחד מעל השני */
+    .hero-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .hero-btn {
+        width: 85% !important; /* נותן להם רוחב אחיד ויפה במובייל */
+        padding: 12px 20px !important;
+    }
+
+    /* 3. הזזת האייקונים בצד שלא יסתירו את הטקסט */
+    .fixed-social-sidebar {
+        right: 10px !important;
+        top: 70% !important;
+        transform: scale(0.8) !important; /* מקטין אותם מעט */
+    }
+
+    /* 4. מניעת חיתוך של הטקסט המודגש */
+    .hero-text {
+        font-size: 1rem !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+    }
 }
 
 .hero-subtitle {
@@ -466,5 +521,87 @@ footer a {
     .fixed-social-sidebar {
         right: 15px; 
         top: 60%; 
+    }
+}
+
+/* --- התאמות רספונסיביות לסקשן הסקילס --- */
+@media (max-width: 768px) {
+    /* התאמת הכותרות של הסקילס */
+    .section-title {
+        font-size: 1.6rem !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .skills-subtitle {
+        font-size: 1.2rem !important;
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* סידור הגריד לזוגות - מונע חריגה מהמסך */
+    .skills-grid {
+        gap: 12px !important; /* רווח קטן יותר בין הריבועים */
+        padding: 0 10px !important;
+        justify-content: center !important;
+    }
+
+    .skill-item {
+        /* חישוב שיוצר בדיוק 2 ריבועים בשורה עם רווח ביניהם */
+        flex: 1 1 calc(45% - 10px) !important; 
+        min-width: 120px !important;
+        
+        font-size: 0.9rem !important; /* הקטנת טקסט למניעת חריגה */
+        padding: 12px 8px !important;
+        border-width: 2px !important; /* גבול דק יותר למראה נקי */
+    }
+
+    /* ביטול אפקטים של Hover שעלולים להציק בטאץ' (אופציונלי) */
+    .skill-item:active {
+        transform: scale(0.95) !important; /* אפקט לחיצה במקום ריחופית */
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- התאמת סקשן יצירת קשר --- */
+    
+    .contact-section {
+        padding: 60px 15px !important; /* צמצום הפדינג העליון */
+    }
+
+    .contact-card {
+        width: 90% !important; /* תופס את רוב רוחב המסך */
+        max-width: none !important;
+        padding: 25px 20px !important; /* פדינג פנימי שנוח לקרוא */
+        margin: 0 auto !important;
+        border-radius: 15px !important;
+        box-sizing: border-box;
+    }
+
+    .contact-card h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .contact-card p {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* התאמת כפתור האימייל/יצירת קשר בתוך הכרטיס אם קיים */
+    .contact-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* סידור האייקונים החברתיים בסוף הדף למובייל */
+    .social-links {
+        gap: 20px !important;
+        margin-top: 20px !important;
+    }
+
+    .social-links .icon {
+        font-size: 1.6rem !important; /* גודל שנוח ללחוץ עליו עם האצבע */
     }
 }

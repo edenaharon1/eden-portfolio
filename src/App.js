@@ -94,7 +94,7 @@ function App() {
                   <div className="hero-content">
                     <h1 className="hero-title-wrapper animate-slide">
                       <span className="hero-title">
-                        Hi, I'm Eden aharon and Welcome to my portfolio
+                        Hi, I'm Eden Aharon and Welcome to my portfolio
                       </span>
                     </h1>
                     <h2 className="hero-title-2 animate-slide">Software Developer</h2>
