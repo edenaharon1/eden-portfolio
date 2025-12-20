@@ -60,17 +60,22 @@ function ProjectDetail({ projects }) {
         </section>
       )}
 
+      {/* --- הסקשן המעודכן של האתגרים והפתרונות --- */}
       {project.challenges && project.challenges.length > 0 && (
-        <section className="project-section challenges-section">
+        <section className="challenges-section">
           <h2>Challenges & Solutions</h2>
-          <ul>
-            {project.challenges.map((item, index) => (
-              <li key={index}>
-                <strong>Challenge:</strong> {item.challenge}<br />
-                <strong>Solution:</strong> {item.solution}
-              </li>
-            ))}
-          </ul>
+          
+          {project.challenges.map((item, index) => (
+            <div key={index} className="challenge-card">
+              <div className="challenge-header">
+                {item.challenge}
+              </div>
+              <div className="solution-box">
+                <strong>The Solution:</strong>
+                <p>{item.solution}</p>
+              </div>
+            </div>
+          ))}
         </section>
       )}
     </div>

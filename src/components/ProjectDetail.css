@@ -271,59 +271,149 @@
     transform: scale(1.1);
 }
 
-/* Challenges Section */
+/* --- Challenges Section - עיצוב מחודש --- */
 .challenges-section {
-    background: rgba(0, 255, 255, 0.05);
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-top: 40px !important;
+}
+
+.challenge-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 25px 30px;
-    margin: 25px 0;
-    text-align: left;
-    box-shadow: 0 5px 25px rgba(0, 255, 255, 0.25);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-.challenges-section:hover {
-    background: rgba(0, 255, 255, 0.08);
-    box-shadow: 0 10px 35px rgba(0, 255, 255, 0.35);
-}
-
-.challenges-section h2 {
-    font-size: 1.8rem;
-    color: #0ff;
-    margin-bottom: 20px;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-    padding-bottom: 8px;
-}
-
-.challenge-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #ddd;
-    padding-left: 25px;
+    padding: 25px;
+    margin-bottom: 30px;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
-.challenge-item::before {
-    content: counter(item) ".";
-    counter-increment: item;
-    position: absolute;
-    left: 0;
-    top: 0;
+.challenge-card:hover {
+    border-color: rgba(0, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* כותרת האתגר (הבעיה) */
+.challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ff73d9; /* ורוד מבטא לבעיה */
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.challenge-header::before {
+    content: '⚠️'; /* אייקון אזהרה לבעיה */
+    font-size: 1.2rem;
+}
+
+/* תיאור הפתרון */
+.solution-box {
+    background: rgba(0, 255, 255, 0.05);
+    border-right: 3px solid #0ff; /* פס דקורטיבי בצד */
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.solution-box strong {
     color: #0ff;
-    font-weight: bold;
-    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.challenge-item strong {
-    color: #0ff;
-}
-
-.challenge-item p {
+.solution-box p {
     margin: 0;
-    padding-left: 5px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* התאמה למובייל של הסקשן החדש */
+
+@media (max-width: 768px) {
+    /* 1. התאמת הקונטיינר הראשי - פחות שוליים כדי לנצל מקום */
+    .project-detail {
+        margin: 20px 10px !important;
+        padding: 20px 15px !important;
+        border-radius: 15px !important;
+    }
+
+    /* 2. סידור ה-Header - הופך לטור אחד (לוגו מעל הטקסט) */
+    .project-header {
+        grid-template-columns: 1fr !important; /* ביטול ה-150px של הלוגו בצד */
+        text-align: center !important;
+        gap: 20px !important;
+    }
+
+    .project-logo {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto !important; /* מרכוז הלוגו */
+    }
+
+    /* 3. תגיות טכנולוגיה - לאפשר להן לרדת שורה כדי שלא יחתכו */
+    .project-detail-tech-tags {
+        flex-wrap: wrap !important; /* משנה מ-nowrap כדי שיכנסו למסך */
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    .project-detail-tech-tags .tech-tag {
+        font-size: 0.75rem !important;
+        padding: 5px 10px !important;
+        flex: none !important; /* מונע מהן להימתח מדי */
+    }
+
+    /* 4. קישורים - מרכוז והגדלה של הטאץ' */
+    .project-links-icons {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 15px !important;
+    }
+
+    /* 5. סרטון - שינוי הפרופורציה שיתאים למסך צר */
+    .project-video-embed {
+        padding-bottom: 56.25% !important; /* יחס 16:9 סטנדרטי למובייל */
+    }
+
+    /* 6. רשימת אתגרים (Challenges) */
+    .challenge-item {
+        padding-left: 20px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .challenge-item::before {
+        font-size: 1.1rem !important;
+    }
+
+    /* 7. כפתורי חזרה */
+    .top-back-link {
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box;
+    }
+
+    .bottom-back-link {
+        width: 100% !important;
+        padding: 12px 0 !important;
+        box-sizing: border-box;
+    }
+     .challenges-section {
+        padding: 25px 15px !important;
+    }
+    
+    .challenge-item {
+        padding: 20px !important;
+        border-right-width: 3px;
+    }
+    
+    .challenge-item strong {
+        font-size: 1.1rem;
+    }
 }
