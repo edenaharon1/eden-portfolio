@@ -14,7 +14,7 @@ The system automatically uploads content according to a pre-scheduled schedule m
     technologies: [ 'React', 
       'TypeScript', 
       'Node.js', 
-      'Express.js', 
+ 
       'OpenAI GPT-4', 
       'MongoDB', 
       'JWT + Google OAuth', 
@@ -77,8 +77,52 @@ The app features Firebase authentication for secure user login and profile manag
   ],
 }
 ,
-  
-  // ניתן להוסיף פרויקטים נוספים כאן...
+  // ----------------------------------------------------
+// Project 3: Hobiz
+// ----------------------------------------------------
+{
+  id: 'hobiz',
+  title: 'Hobiz',
+  shortDescription: 'Social platform for sharing hobbies with AI-powered content.',
+  fullDescription: `Hobiz is a full web application built with React and Node.js (TypeScript) that allows users to share hobbies, post content, comment, like, and interact with other users.
+The platform integrates CHAT with AI from available AI APIs.
+It also includes a secure user authentication system with JWT, third-party providers (Google/Facebook), and refresh tokens.`,
+  technologies: [
+    'React', 
+    'Node.js', 
+    'Express.js', 
+    'TypeScript', 
+    'MongoDB', 
+    'JWT + OAuth (Google/Facebook)', 
+    'OpenAI API', 
+    'Swagger', 
+    'Unit Testing'
+  ],
+  github: 'https://github.com/edenaharon1/Hobiz.git',
+
+  challenges: [
+    {
+      challenge: 'Implementing secure user authentication and session management with JWT and external providers.',
+      solution: 'Integrated JWT with refresh tokens and OAuth login (Google/Facebook), ensuring secure login and persistent sessions.'
+    },
+    {
+      challenge: 'Managing large volumes of posts and paginated content efficiently.',
+      solution: 'Implemented server-side pagination and optimized MongoDB queries to load posts smoothly with minimal delay.'
+    },
+    {
+      challenge: 'Allowing users to comment, like, and edit/delete their posts safely.',
+      solution: 'Implemented REST APIs with proper authentication checks and efficient database updates to handle user interactions.'
+    },
+  ],
+
+  keyFeatures: [
+    'Secure login with JWT and external providers (Google/Facebook)',
+    'Create, edit, delete, and like posts',
+    'Unit-tested APIs and documented with Swagger',
+
+  ]
+},
+
 ];
 
 export default projects;
