@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-document.title = "Eden Aharon | Software Developer";
+document.title = "Eden Refael | Software Developer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
