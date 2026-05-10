@@ -8,7 +8,7 @@ import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
 import ContactCard from './components/ContactCard';
 import projects from './data/projects';
-import cv from './assets/Eden_Aharon_CV.pdf';
+import cv from './assets/Eden_Refael_CV.pdf';
 import './App.css';
 import BackgroundParticles from './components/BackgroundParticles';
 import FadeInSection from './components/FadeInSection';
@@ -121,7 +121,7 @@ function App() {
                 <section id="home">
                   <h1 className="section-title">ABOUT ME</h1>
                   <img src={EdenImage} alt="Eden" />
-                  <h1>Eden Aharon</h1>
+                  <h1>Eden Refael</h1>
                   <p>
                     A Bachelor's degree in <span className="keyword-highlight-secondary">Computer Science</span> with practical specialization in <span className="keyword-highlight-secondary">Full Stack</span> development. I bring practical experience from developing <span className="keyword-highlight-secondary">significant technological projects</span>, demonstrating advanced capabilities on both the client and server sides.
                   </p>

@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer id="footer">
-      <p>Crafted with passion &nbsp;💻 &nbsp;| &nbsp; © {new Date().getFullYear()} Eden Aharon</p>
+      <p>Crafted with passion &nbsp;💻 &nbsp;| &nbsp; © {new Date().getFullYear()} Eden Refael</p>
       <div className="social-links">
         <a 
           href="https://github.com/edenaharon1/eden-portfolio.git" 
